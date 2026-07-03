@@ -8,31 +8,53 @@
     <meta name="description"
         content="سرباز بازی مرکب . یکی از اولین ربات الهام گرفته شده از بازی مرکب است و میتواند بازی های سریال را در گروه اجرا کند. این ربات در پیامرسان یله  فعالیت دارد.">
     <link rel="shortcut icon" href="icon.png" type="image">
-    <link rel="stylesheet" href="./style/Index.css">
+    <link rel="stylesheet" href="./style/index.css">
     <title>سرباز بازی مرکب - نخستین ربات سرباز بازی مرکب در بله</title>
 </head>
 
 <body>
+    <!-- موزیک - زمانی که کاربر تعامل کند -->
     <audio src="./music/2_5456341949080432756.mp3" id="music"></audio>
+
+    <!-- سرآیند صفحه -->
     <header>
-        <img src="Image/هئل.png" alt="" id="image_banner">
+        <img src="images/هئل.png" alt="" id="image_banner">
         <div id="titleText-div">
+
+            <!-- متن ابتدای صفحه -->
             <h1 id="title-text"></h1>
         </div>
 
     </header>
+    <!-- محتوای اصلی -->
     <article>
         <section id="introduction_section">
             <div id="startNow_card">
                 <h2>هم اکنون شروع کنید !</h2>
                 <div>
-                    <a href="https://web.bale.ai/chat?uid=4980858909" target="_blank"><button>عضویت در گروه</button></a>
+                    <a href="https://bale.ir/squidgame_orginal" target="_blank"><button>عضویت در گروه</button></a>
                     <a href="https://bale.ir/Soldersquidgame_bot" target="_blank"><button>دیدن ربات</button></a>
                 </div>
+            </div>
+
+            <!-- توضیحاتی برای معرفی ربات -->
+            <div id="botDescription">
+                <div id="invitationCardAndTitle_div">
+                    <img src="./images/invitationCard.png" alt="" id="invitationCard">
+                    <h3>این ربات چه کاری را انجام میدهد؟</h3>
+                </div>
+                <p>این ربات درواقع رباتی الهام گرفته شده از سرباز های سریال بازی مرکب است.</p>
+                <p>از انجایی که در پیامرسان بله فقط این سرباز وجود دارد میتوان گفت نخستین سرباز بازی مرکب در بله است
+                    و به راحتی میتوانید این ربات را در گروه خود تست کنید.</p>
+                <p>سرباز های بازی مرکب بی رحمانه عمل می کند و تابع دستورات رئیس بازی هستند و دستورات بازیکنان را
+                    نادیده می گیرند.</p>
+
+                <p>رفتار های این ربات مشابه سریال اسکویید گیم می باشد و شروع هر بازی هیجان عجیبی در دل بازیکنان و
+                    رئیس
+                    می اندازد</p>
 
             </div>
             <div id="introductions">
-
                 <div id="introductionAbitltyBot_card">
                     <h3>بیش از 3 بازی هیجان انگیز</h3>
                     <ul>
@@ -43,7 +65,7 @@
                     </ul>
                 </div>
                 <div id="introductionBot_card">
-                    <img src="./Images/botProfileImg.jpg" alt="">
+                    <img src="./images/botProfileImg.jpg" alt="">
                     <div id="introductionBotCard_texts">
                         <h4>Soldier Squidgame</h4>
                         <p>درود بازیکنان. آیا وقت برگزاری بازی جدیدی است؟</p>
@@ -51,12 +73,40 @@
                 </div>
             </div>
         </section>
-        <section>
-            <h3>4/7</h3>
+        <section id="commentsAndPoints_section">
             <div>
+                <h3>نظرات و امتیاز ها</h3>
+                <p>امتیاز ها و انتقاد هایی که کاربران از سرباز بازی مرکب داشته اند:</p>
+            </div>
+            <div id="scoreUsers_table">
+                <span id="scoreUsers">4,7</span>
+                <div style="width: 100%;">
+                    <div class="numberAndScore_div">
+                        <span>5</span>
+                        <div class="rewioeScoreNum_div" style="width: 85%;"></div>
+                    </div>
+                    <div class="numberAndScore_div">
+                        <span>4</span>
+                        <div class="rewioeScoreNum_div" style="width: 10%;"></div>
+                    </div>
+                    <div class="numberAndScore_div">
+                        <span>3</span>
+                        <div class="rewioeScoreNum_div" style="width: 3%;"></div>
+                    </div>
+                    <div class="numberAndScore_div">
+                        <span>2</span>
+                        <div class="rewioeScoreNum_div" style="width: 1%;"></div>
+                    </div>
+                    <div class="numberAndScore_div">
+                        <span>1</span>
+                        <div class="rewioeScoreNum_div" style="width: 25%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- دیدگاه های کابران -->
                 <div>
                     <img src="" alt="">
-
                     <div>
                         <h4></h4>
                         <p></p>
@@ -72,8 +122,8 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div>
+        <section id="botReserveing_section">
+            <div id="reservationTariffs_div">
                 <h3>همین حالا ربات سرباز را در گروه خود رزرو کنید !</h3>
                 <table>
                     <tr>
@@ -100,16 +150,16 @@
                 </table>
 
             </div>
-            <div>
+            <div id="contentManufacturer_card">
                 <h3>برای رزرو فقط و فقط با سازنده هماهنگ کنید.</h3>
-                <a href="https://web.bale.ai/chat?uid=40551494"><button>ارتباط با سازنده</button></a>
+                <a href="https://bale.ir/erf_vf"><button>ارتباط با سازنده</button></a>
             </div>
         </section>
     </article>
-    <footer>
+    <footer id="copyright_footer">
         <h3>تمامی داده های این صفحه متعلق به آقای Erf و طراح ربات و مالک گروه و تیم ایندکس است. &copy;</h3>
     </footer>
-    <script src="./js/Index.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
