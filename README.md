@@ -31,3 +31,26 @@
 3. رئیس باید برای دریافت لیست دستورات کلمه "/کامند" در گروه ارسال کند.
 
 > کلیه دستورات و نحوه بازی را سرباز حین برگزاری هر بازی می‌گوید.
+
+
+## 📞 ارتباط با ما
+
+<p align="center">
+
+<a href="https://ble.ir/SoldierSquidGame_bot">
+🤖 Bot
+</a>
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+<a href="https://erfan752.github.io/SoldierSquidGame/">
+🌐 Website
+</a>
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+<a href="https://t.me/erf_vf">
+💬 Telegram
+</a>
+
+</p>
