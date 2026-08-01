@@ -1,2 +1,1 @@
-# SoldierSquidGame
-نخستین سرباز بازی مرکب در پیام‌رسان بله
+# SoldierSquidGame | سرباز بازی مرکب
