@@ -38,19 +38,17 @@
 <p align="center">
 
 <a href="https://ble.ir/SoldierSquidGame_bot">
-🤖 Bot
+Bale 👤
 </a>
 
-&nbsp;&nbsp; | &nbsp;&nbsp;
 
-<a href="https://erfan752.github.io/SoldierSquidGame/">
+<a href="https://erfan752.github.io/erf_vf">
 🌐 Website
 </a>
 
-&nbsp;&nbsp; | &nbsp;&nbsp;
 
 <a href="https://t.me/erf_vf">
-💬 Telegram
+Telegram 👤
 </a>
 
 </p>
