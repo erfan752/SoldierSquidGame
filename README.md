@@ -1,8 +1,8 @@
 # SoldierSquidGame | سرباز بازی مرکب
 **نخستین ربات سرباز بازی مرکب در بله**
 
-<a href="https://example.com"aling="center">
-<button>
-Download
-</button>
-</a>
+<p align="center">
+  <a href="https://ble.ir/SoldierSquidGame_bot">
+    <img src="https://img.shields.io/badge/Start%20Bot-Click%20Here-green?style=for-the-badge">
+  </a>
+</p>
