@@ -3,11 +3,11 @@
 
 
 <p align="center">
-  <b>همین حالا ربات سرباز را امتحان کنید 🎮</b>
+  همین حالا ربات را استفاده کنید
 </p>
 
 <p align="center">
   <a href="https://ble.ir/SoldierSquidGame_bot">
-    <img src="https://img.shields.io/badge/START%20NOW-شروع%20بازی-red?style=for-the-badge">
+    <img src="https://img.shields.io/badge/START%20NOW-🤖%20Bot-red?style=for-the-badge">
   </a>
 </p>
