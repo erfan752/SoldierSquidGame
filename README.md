@@ -3,6 +3,6 @@
 
 <p align="center">
   <a href="https://ble.ir/SoldierSquidGame_bot">
-    <img src="https://img.shields.io/badge/Start%20Bot-Click%20Here-green?style=for-the-badge">
+    <img src="https://img.shields.io/badge/START%20NOW-🤖%20Bot-red?style=for-the-badge">
   </a>
 </p>
