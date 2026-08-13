@@ -64,9 +64,6 @@
 
 ## ℹ️ ارتباط با سازنده
 
-
-
-&nbsp;
 <a href="https://erfan752.github.io/SoldierSquidGame/">
 🌐 Website
 </a>
