@@ -67,12 +67,12 @@
 
 <br>
 <a href="https://erfan752.github.io/SoldierSquidGame/">
-🌐 Website
+🌐 Website private
 </a>
 
 <br>
 
 <a href="https://t.me/erf_vf">
-💬 Telegram
+💬 Telegram pv
 </a>
 
