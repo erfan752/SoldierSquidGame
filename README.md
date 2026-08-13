@@ -68,7 +68,7 @@
 🌐 Website
 </a>
 
-&nbsp;
+<br>
 
 <a href="https://t.me/erf_vf">
 💬 Telegram
