@@ -70,7 +70,6 @@
 🤖 Bale Bot
 </a>
 
-&nbsp;
 
 <a href="https://erfan752.github.io/SoldierSquidGame/">
 🌐 Website
