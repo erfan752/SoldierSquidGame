@@ -64,7 +64,7 @@
 
 ## ℹ️ ارتباط با سازنده
 
-<p align="center">
+
 
 <a href="https://ble.ir/SoldierSquidGame_bot">
 🤖 Bale Bot
@@ -82,4 +82,3 @@
 💬 Telegram
 </a>
 
-</p>
