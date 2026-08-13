@@ -66,16 +66,12 @@
 
 
 
-<a href="https://ble.ir/SoldierSquidGame_bot">
-🤖 Bale Bot
-</a>
-
-
+&nbsp;
 <a href="https://erfan752.github.io/SoldierSquidGame/">
 🌐 Website
 </a>
 
-&nbsp;&nbsp; | &nbsp;&nbsp;
+&nbsp;
 
 <a href="https://t.me/erf_vf">
 💬 Telegram
