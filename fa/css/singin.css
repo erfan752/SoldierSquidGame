@@ -1,0 +1,169 @@
+@font-face {
+    font-family: samimFont;
+    src: url(../samim-font-v2.0.1/Samim.ttf);
+    /* src: url(../B-Sina/B-Sina/B\ Sina\ Bold_0.ttf); */
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    font-family: samimFont;
+    color: #fff;
+}
+
+:root {
+    --soldier-pink: #EC4899;
+    --soldier-btn-pink: #e63d7e;
+    --soldier-btn-pink-hover: #cc2f6b;
+}
+
+
+
+body {
+    background: #020304;
+    height: 100%;
+    animation: bodyAnimate 5s linear infinite;
+}
+
+input {
+    color: black;
+    width: -webkit-fill-available;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline-color: var(--soldier-pink);
+    border: 2px solid white;
+    background-color: #ffffff92;
+}
+
+input::placeholder {
+    color: #0203048e;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#parentItems {
+    display: flex;
+    justify-content: center;
+}
+
+#nav-elements {
+    position: absolute;
+    top: 14%;
+    width: 55%;
+    background: black;
+    border: 1px solid var(--soldier-pink);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 -15px 20px 0px var(--soldier-pink);
+}
+
+#logo-div {
+    display: flex;
+    justify-content: center;
+}
+
+#logoImage {
+    width: 100%;
+    max-width: 450px;
+}
+
+#form-elements {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#idItems-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+#number-input {
+    width: -webkit-fill-available;
+}
+
+
+
+#createId-btn {
+    width: 105px;
+    padding: 5px;
+    color: black;
+    border-radius: 2px;
+    background-color: var(--soldier-btn-pink);
+    border: 1px solid var(--soldier-btn-pink);
+    cursor: pointer;
+}
+
+#createId-btn:hover {
+    background-color: var(--soldier-btn-pink-hover);
+}
+
+#togglePassword-btn {
+    padding: 0;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: var(--soldier-btn-pink);
+    cursor: pointer;
+}
+
+
+#submit-btn {
+    background-color: var(--soldier-btn-pink);
+    padding: 10px;
+    border: none;
+    margin: 5px 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.05s;
+}
+
+#submit-btn:hover {
+    background-color: var(--soldier-btn-pink-hover);
+}
+
+.agreement,
+.agreement a {
+    text-align: center;
+    color: #ffffffa9;
+}
+
+#login-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+    #nav-elements {
+        width: auto;
+        top: 60px;
+    }
+
+    #idItems-div {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #createId {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

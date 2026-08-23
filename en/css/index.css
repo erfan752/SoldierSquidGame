@@ -1,0 +1,57 @@
+@font-face {
+    font-family: samimFont;
+    src: url(../font/ShareTech-Regular.ttf);
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    user-select: none;
+    font-family: samimFont;
+}
+
+:root {
+    --soldier-pink: #EC4899;
+    --soldier-btn-pink: #e63d7e;
+    --soldier-btn-pink-hover: #cc2f6b;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+header {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+main {
+    margin-top: 60px;
+}
+
+#titles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.titles-btn {
+    border: none;
+    border-radius: 15px;
+    padding: 12px 33px;
+    font-size: 0.9em;
+}
+
+#startnow-btn {
+    background-color: var(--soldier-btn-pink);
+}
+
+#aboutsoldier-btn{
+    border: 2px solid #00000021;
+    background-color: #f0f0f0;;
+}

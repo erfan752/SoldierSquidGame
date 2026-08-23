@@ -1,0 +1,41 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: #0d0d0d;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    background-color: #232323;
+    color: #ffff;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+.mobileMenu:active {
+    display: flex;
+    flex-direction: column;
+}
+
+.hambergerMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hambergerMenu span {
+    width: 29px;
+    height: 9px;
+    background: #fff;
+    transition: 3s;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/singin.css">
+    <link rel="shortcut icon" href="../favicon.jpg" type="image/x-icon">
+    <title>Login - Mixed Game Soldier</title>
+</head>
+
+<body dir="rtl">
+    <article>
+        <section id="parentItems">
+            <nav id="nav-elements">
+
+                <div id="logo-div">
+                    <img src="../assets/images/logo/logo-long.jpg" alt="Mixed Game Soldier Logo" id="logoImage">
+                </div>
+
+                <form action="#" id="form-elements">
+                    <h1 style="text-align: center;">Login / Register</h1>
+                    <label id="number-fild">
+                        Please enter your ID
+                        <div id="idItems-div">
+                            <div style="width: -webkit-fill-available;display: flex;align-items: center;">
+                                <input type="number" inputmode="numeric" placeholder="Enter ID" id="number-input"
+                                    required>
+                                <nav style="width: 50px;">
+                                    <span id="nameId-span"> - SDL</span>
+                                </nav>
+                            </div>
+                            <div id="createId">
+                                <button id="createId-btn">Create ID ↻</button>
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        Enter password
+                        <div style="display: flex;align-items: center;gap: 5px;">
+                            <input type="password" id="password-input" placeholder="Enter account password">
+                            <button id="togglePassword-btn"><img src="../assets/images/icons/soldier-cloase.png" alt=""
+                                    width="35px"></button>
+                        </div>
+                    </label>
+                    <input type="submit" value="Soldier Login" id="submit-btn">
+                    <p class="agreement">By creating an account, you agree to the <a href="#">Terms of Use and Privacy
+                            Policy</a>
+                        .</p>
+                    <div id="login-options">
+                        <p class="help-login">Having trouble logging in? <a href="#">Read the guide</a></p>
+                        <p class="froget-password"><a href="#">I forgot my password.</a></p>
+                    </div>
+                </form>
+
+            </nav>
+        </section>
+    </article>
+    <script src="../js/singin.js"></script>
+</body>
+
+</html>
