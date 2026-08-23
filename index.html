@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>درحال ورود به صفحه اصلی - سرباز بازی مرکب</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.882);
+      }
+      .card {
+        gap: 30px;
+        background-color: black;
+        width: min-content;
+        padding: 40px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .loading-icon {
+        animation: loading-spin 0.9s linear infinite;
+      }
+
+      @keyframes loading-spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body dir="rtl">
+    <section
+      style="
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      "
+    >
+      <div class="card">
+        <img src="fa/assets/images/logo/logo-long.jpg" alt="لوگو" />
+        <nav>
+          <svg
+            class="loading-icon"
+            width="40"
+            height="40"
+            viewBox="0 0 128 128"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient
+                id="loadingGradient"
+                x1="70%"
+                y1="10%"
+                x2="5%"
+                y2="15%"
+              >
+                <stop offset="0%" stop-color="#ec4899" stop-opacity="0.08" />
+                <stop offset="55%" stop-color="#ec4899" stop-opacity="0.25" />
+                <stop offset="80%" stop-color="#ec4899" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#ec4899" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+
+            <path
+              d="M64 10 A54 54 0 1 1 10 64"
+              fill="none"
+              stroke="url(#loadingGradient)"
+              stroke-width="30"
+              stroke-linecap="round"
+            />
+          </svg>
+        </nav>
+      </div>
+    </section>
+  </body>
+</html>
