@@ -1,26 +1,49 @@
-// بی رنگ کردن هدر زمانی که اسکرول 0 بایشد ====================================
-let header = document.querySelector("header");
-function noneBGTo0scroll() {
-  setInterval(() => {
-    if (scrollY === 0) {
-      header.style.background = "rgba(0, 0, 0, 0)";
-      header.style.justifyContent = " center";
-    } else {
-      header.style.removeProperty("background");
-      header.style.justifyContent = "space-between";
-    }
-  }, 100);
-}
-noneBGTo0scroll();
+const header = document.querySelector("header");
 
-const lenghtUserNav = document.querySelector("#lenght-user");
-// const
-function animateLenghtUser(lenghtUser) {
-  for (let x = 0; x < lenghtUser + 1; x++) {
-    setTimeout(() => {}, 100);
-    lenghtUserNav.textContent = x;
-    // console.log(x);
+function updateHeader() {
+  if (window.scrollY === 0) {
+    header.classList.remove("scrolled");
+    document.querySelector("header .header-item:first-child").style.right = window.wi
+  } else {
+    header.classList.add("scrolled");
   }
 }
 
-animateLenghtUser(50);
+window.addEventListener("scroll", updateHeader);
+
+updateHeader();
+
+// انیمیشن تعداد کاربران ماهانه سرباز
+const monthlyUsers = 50;
+
+const counter = document.getElementById("monthly-users");
+
+const duration = 3500;
+const startTime = performance.now();
+
+function formatNumber(value) {
+  if (value >= 1000) {
+    return (
+      (value / 1000).toFixed(value % 1000 === 0 ? 0 : 2).replace(/\.?0+$/, "") +
+      "K+"
+    );
+  }
+
+  return String(Math.floor(value)).padStart(3, "0") + "+";
+}
+
+function updateCounter(currentTime) {
+  const progress = Math.min((currentTime - startTime) / duration, 1);
+
+  const value = Math.floor(progress * monthlyUsers);
+
+  counter.textContent = formatNumber(value);
+
+  if (progress < 1) {
+    requestAnimationFrame(updateCounter);
+  } else {
+    counter.textContent = formatNumber(monthlyUsers);
+  }
+}
+
+requestAnimationFrame(updateCounter);

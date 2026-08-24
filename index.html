@@ -80,5 +80,13 @@
         </nav>
       </div>
     </section>
+    <script>
+      const language = navigator.language.toLowerCase();
+      if (language.startsWith("fa")) {
+        window.location.href = "./fa";
+      } else {
+        window.location.href = "./en";
+      }
+    </script>
   </body>
 </html>

@@ -5,8 +5,8 @@
 }
 
 @font-face {
-  font-family: digitalnumber;
-  src: url(../font/DigitalNumbers.ttf);
+  font-family: regular-font;
+  src: url(../font/Regular.ttf);
   font-style: normal;
 }
 
@@ -30,21 +30,71 @@ img {
 }
 
 header {
-  background-color: black;
+  background-color: transparent;
   position: fixed;
   top: 0;
+  left: 0;
+
   display: flex;
-  height: 60px;
-  z-index: 100;
-  width: -webkit-fill-available;
-  transition: 0.5s;
   align-items: center;
+  justify-content: center;
+
+  height: 60px;
+  width: -webkit-fill-available;
+
+  z-index: 100;
+
   padding: 5px 15px;
+
+  transition:
+    background-color 0.5s ease,
+    justify-content 0.5s ease;
 }
 
 .header-item {
   display: flex;
   align-items: center;
+
+  transition:
+    transform 0.5s ease,
+    margin 0.5s ease;
+}
+
+
+header .header-item:first-child {
+  position: absolute;
+  right: calc(50% - 419px);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* منوی سه خط */
+
+header .header-item:last-child {
+  position: absolute;
+  left: calc(50% - 55px);
+
+  transform: translateX(50%);
+
+  z-index: 1;
+}
+
+
+header.scrolled {
+  background-color: black;
+  justify-content: space-between;
+}
+
+
+header.scrolled .header-item:first-child {
+  right: 0;
+  transform: translateX(0);
+}
+
+
+header.scrolled .header-item:last-child {
+  left: 0;
+  transform: translateX(0);
 }
 
 #titles {
@@ -108,7 +158,11 @@ header {
   align-items: center;
 }
 
-#lenght-user {
-  font-size: 4em;
-  font-family: digitalnumber;
+#list-ability li::marker {
+  color: var(--soldier-pink);
+}
+
+#monthly-users {
+  font-size: 3em;
+  font-family: regular-font;
 }
