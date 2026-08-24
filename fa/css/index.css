@@ -20,6 +20,10 @@
   --soldier-pink: #ec4899;
   --soldier-btn-pink: #e63d7e;
   --soldier-btn-pink-hover: #cc2f6b;
+  --telegram-theme-color: #0088cc;
+  --telegram-dark-theme-color: #0070a8;
+  --bale-theme-color: #00bf8b;
+  --bale-dark-theme-color: #009069;
 }
 
 body {
@@ -60,7 +64,6 @@ header {
     margin 0.5s ease;
 }
 
-
 header .header-item:first-child {
   position: absolute;
   right: calc(50% - 419px);
@@ -79,18 +82,15 @@ header .header-item:last-child {
   z-index: 1;
 }
 
-
 header.scrolled {
   background-color: black;
   justify-content: space-between;
 }
 
-
 header.scrolled .header-item:first-child {
   right: 0;
   transform: translateX(0);
 }
-
 
 header.scrolled .header-item:last-child {
   left: 0;
@@ -142,14 +142,16 @@ header.scrolled .header-item:last-child {
   border-radius: 10px;
   flex-direction: column;
   background: #eac291;
+  box-shadow: 1px 5px 15px 0px #5d4e3c;
 }
 
 #ability-soldier {
   background-color: black;
   color: #fff;
-  /* border: 3px solid var(--soldier-pink); */
+  box-shadow: 1px 5px 15px 0px #000000bd;
   padding: 20px;
   margin: 30px;
+  border-radius: 10px;
 }
 
 #logo-and-list-ability {
@@ -165,4 +167,60 @@ header.scrolled .header-item:last-child {
 #monthly-users {
   font-size: 3em;
   font-family: regular-font;
+}
+/* #versions{
+
+} */
+
+#versions-titles {
+  background-color: #8b8b8b;
+  color: #000000;
+  box-shadow: 1px 5px 15px 0px #414141;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
+}
+
+#version-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#version-cards div {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  /* width: -webkit-fill-available; */
+}
+
+#bale-version {
+  border: solid 3px var(--bale-dark-theme-color);
+  background-color: var(--bale-theme-color);
+}
+#telegram-version {
+  border: solid 3px var(--telegram-dark-theme-color);
+  background-color: var(--telegram-theme-color);
+}
+
+.view-version-btn {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-version-btn button {
+  padding: 10px;
+  border-radius: 15px;
+  color: black;
+  border: 3px solid rgba(0, 0, 0, 0.173);
+}
+#telegram-version button {
+  background-color: var(--telegram-dark-theme-color);
+}
+#bale-version button {
+  background-color: var(--bale-dark-theme-color);
 }
