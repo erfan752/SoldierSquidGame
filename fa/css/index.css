@@ -20,6 +20,11 @@
   --soldier-pink: #ec4899;
   --soldier-btn-pink: #e63d7e;
   --soldier-btn-pink-hover: #cc2f6b;
+  --soldier-btn-dark-pink: #9c204f;
+  --soldier-white: #f0f0f0;
+  --soldier-white-hover: #c2c2c2;
+  --soldier-green: #236640;
+  --soldier-green-dark: #18432a;
   --telegram-theme-color: #0088cc;
   --telegram-dark-theme-color: #0070a8;
   --bale-theme-color: #00bf8b;
@@ -114,31 +119,49 @@ header.scrolled .header-item:last-child {
   border-radius: 15px;
   padding: 12px 33px;
   font-size: 0.9em;
+  box-sizing: border-box;
 }
 
 #canvas {
   width: 100%;
   overflow: hidden;
   height: 650px;
-  background-color: rgba(0, 0, 0, 0.882);
+  background-color: #000000e1;
   color: rgba(0, 0, 0, 0);
 }
 
 #startnow-btn {
   background-color: var(--soldier-btn-pink);
   color: #f0f0f0;
+  border: 2px solid var(--soldier-btn-dark-pink);
+  transition: 0.05s;
+}
+
+#startnow-btn:hover {
+  background-color: var(--soldier-btn-pink-hover);
+  cursor: pointer;
 }
 
 #aboutsoldier-btn {
   border: 2px solid #00000021;
   background-color: #f0f0f0;
   color: black;
+  transition: 0.05s;
+}
+
+#aboutsoldier-btn:hover {
+  background-color: var(--soldier-white-hover);
+  cursor: pointer;
+}
+
+.card {
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
 }
 
 #about-soldier {
   display: flex;
-  margin: 30px;
-  padding: 15px;
   border-radius: 10px;
   flex-direction: column;
   background: #eac291;
@@ -165,26 +188,23 @@ header.scrolled .header-item:last-child {
 }
 
 #monthly-users {
+  background: #181818;
   font-size: 3em;
   font-family: regular-font;
+  color: #53ab3d;
+  padding: 20px;
 }
-/* #versions{
 
-} */
-
-#versions-titles {
+#versions {
   background-color: #8b8b8b;
   color: #000000;
   box-shadow: 1px 5px 15px 0px #414141;
-  padding: 20px;
-  margin: 30px;
-  border-radius: 10px;
 }
 
 #version-cards {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -192,6 +212,7 @@ header.scrolled .header-item:last-child {
 #version-cards div {
   border-radius: 10px;
   padding: 20px;
+  display: inline-block;
   margin: 10px;
   /* width: -webkit-fill-available; */
 }
@@ -200,6 +221,7 @@ header.scrolled .header-item:last-child {
   border: solid 3px var(--bale-dark-theme-color);
   background-color: var(--bale-theme-color);
 }
+
 #telegram-version {
   border: solid 3px var(--telegram-dark-theme-color);
   background-color: var(--telegram-theme-color);
@@ -218,9 +240,70 @@ header.scrolled .header-item:last-child {
   color: black;
   border: 3px solid rgba(0, 0, 0, 0.173);
 }
+
 #telegram-version button {
   background-color: var(--telegram-dark-theme-color);
 }
+
 #bale-version button {
   background-color: var(--bale-dark-theme-color);
+}
+
+#news {
+  background-color: var(--soldier-green);
+  color: #000;
+  box-shadow: 1px 5px 15px 0px var(--soldier-green-dark);
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
+}
+
+#events {
+  background-color: var(--soldier-btn-dark-pink);
+  color: #000;
+  box-shadow: 1px 5px 15px 0px black;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
+}
+
+#events-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: scroll;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.146);
+  border-radius: 10px;
+}
+
+.event-card {
+  background-color: black;
+  color: var(--soldier-pink);
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.view-more-event {
+  width: -webkit-fill-available;
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--soldier-btn-pink);
+}
+.view-more-event:hover{
+  background-color: var(--soldier-btn-pink-hover);
+  cursor: pointer;
+}
+
+#copyright {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  background-color: black;
+  color: var(--soldier-pink);
 }

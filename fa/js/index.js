@@ -3,7 +3,8 @@ const header = document.querySelector("header");
 function updateHeader() {
   if (window.scrollY === 0) {
     header.classList.remove("scrolled");
-    document.querySelector("header .header-item:first-child").style.right = window.wi
+    document.querySelector("header .header-item:first-child").style.right =
+      window.wi;
   } else {
     header.classList.add("scrolled");
   }
@@ -14,7 +15,7 @@ window.addEventListener("scroll", updateHeader);
 updateHeader();
 
 // انیمیشن تعداد کاربران ماهانه سرباز
-const monthlyUsers = 50;
+const monthlyUsers = 23;
 
 const counter = document.getElementById("monthly-users");
 
@@ -22,10 +23,18 @@ const duration = 3500;
 const startTime = performance.now();
 
 function formatNumber(value) {
-  if (value >= 1000) {
+  if ((value >= 1000) & (value < 1000000)) {
     return (
       (value / 1000).toFixed(value % 1000 === 0 ? 0 : 2).replace(/\.?0+$/, "") +
       "K+"
+    );
+  }
+
+  if (value >= 1000000) {
+    return (
+      (value / 1000000)
+        .toFixed(value % 1000000 === 0 ? 0 : 2)
+        .replace(/\.?0+$/, "") + "M+"
     );
   }
 

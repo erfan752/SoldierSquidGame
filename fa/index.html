@@ -14,6 +14,7 @@
     <!-- <meta name="color-scheme" content="dark light"> -->
     <link rel="shortcut icon" href="favicon.jpg" type="image" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="scroll.css" />
     <title>سرباز بازی مرکب - نخستین ربات سرباز بازی مرکب در بله</title>
   </head>
 
@@ -177,7 +178,7 @@
       </section>
 
       <!-- معرفی پروژه -->
-      <article id="about-soldier">
+      <article id="about-soldier" class="card">
         <h2>سرباز چیست؟</h2>
         <p>
           سرباز بازی مرکب یا به اختصار (سرباز) یک ربات در پیامرسان بله و تلگرام
@@ -196,7 +197,7 @@
       </article>
 
       <!-- امکانات ربات -->
-      <section id="ability-soldier">
+      <section id="ability-soldier" class="card">
         <h2>بیش از 50 کاربر ماهانه در حال استفاده از سرباز هستند.</h2>
         <div id="logo-and-list-ability">
           <!-- لیست قابلیت ها -->
@@ -220,13 +221,14 @@
         </div>
       </section>
 
-      <section id="versions">
+      <!-- معرفی نسخه های ربات -->
+      <section id="versions" class="card">
         <div id="versions-titles">
           <h2 style="display: ruby">
             سرباز در دو نسخه
             <nav style="color: var(--bale-dark-theme-color)">بله</nav>
             و
-            <nav style="color: var(--telegram-dark-theme-color);">تلگرام</nav>
+            <nav style="color: var(--telegram-dark-theme-color)">تلگرام</nav>
             ساخته شده است.
           </h2>
           <p>
@@ -241,9 +243,13 @@
               </p>
               <p>این نسخه به دلیل قدیمی تر بودن رباتی آشنا در بله است.</p>
               <nav class="view-version-btn">
-                <a href="https://ble.ir/soliersquidgame_bot" target="_blank"><button>نسخه بله</button></a>
-                <a href="https://ble.ir/soliersquidgame" target="_blank"><button>اطلاع رسانی بله</button></a>
-              </nav>/
+                <a href="https://ble.ir/soliersquidgame_bot" target="_blank"
+                  ><button>نسخه بله</button></a
+                >
+                <a href="https://ble.ir/soliersquidgame" target="_blank"
+                  ><button>اطلاع رسانی بله</button></a
+                >
+              </nav>
             </div>
             <div id="telegram-version">
               <img src="" alt="" />
@@ -255,8 +261,12 @@
                 این نسخه از امکانات بیشری از جمله ایموجی پریمیوم برخوردار است.
               </p>
               <nav class="view-version-btn">
-                <a href="https://t.me/soldiersquidgame_bot" target="_blank"><button>تسخه تلگرام</button></a>
-                <a href="https://t.me/soldiersquidgame"><button>اطلاع رسانی تلگرام</button></a>
+                <a href="https://t.me/soldiersquidgame_bot" target="_blank"
+                  ><button>تسخه تلگرام</button></a
+                >
+                <a href="https://t.me/soldiersquidgame"
+                  ><button>اطلاع رسانی تلگرام</button></a
+                >
               </nav>
             </div>
           </div>
@@ -264,7 +274,7 @@
       </section>
 
       <!-- مقاله ها: اخبار و اطلاعیه ها -->
-      <section>
+      <section id="news" class="card">
         <h2>مقاله ها:</h2>
         <div>
           <div></div>
@@ -273,31 +283,48 @@
         </div>
       </section>
 
-      <section>
+      <!-- ایونت ها: بازی های در انتظار برگزاری -->
+      <section id="events">
         <h2>ایونت ها:</h2>
-        <div>
-          <div>
-            <h3>تورنومنت جهانی</h3>
+        <div id="events-list">
+          <div class="event-card">
+            <h3>تورنومنت شهریور ماه</h3>
             <p>
               هر ماه از همه گروه ها بازیکنی که بهترین بازی را در آن گروه داشته
               باشند به گروه تورنومنت دعوت خواهند شد و جایزه بزرگی به برنده اهدا
               میشود.
             </p>
             <nav>تاریخ برگزاری: 1405/07/01</nav>
+            <a href="#"><button class="view-more-event">دیدن جزئیات</button></a>
           </div>
-          <div>
-            <h3>تورنومنت فصلی</h3>
+          <div class="event-card">
+            <h3>فینال نهایی تابستان</h3>
             <p>
               هر سهماه و از هر /روه 3 بازیکن برتری که بازی خوبی داشته اند به
               گروه دعوت میشوند و بزرگتیرن جایزه به سه برنده اهدا میشند ب
             </p>
+            <nav>تاریخ برگزاری: 1405/06/31</nav>
+            <a href="#"><button class="view-more-event">دیدن جزئیات</button></a>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+            "
+          >
+            <nav>ایونت دیگری نیست.</nav>
           </div>
         </div>
       </section>
     </main>
 
     <!-- صلب مسِِولیت -->
-    <footer>کلیه داده ها متعلق پروژه سرباز بازی مرکب است. &copy;</footer>
+    <footer id="copyright">
+      <nav>کلیه داده ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب, آقای Erf.</nav>
+    </footer>
 
     <script src="js/index.js"></script>
     <script type="module" src="js/main.js"></script>
