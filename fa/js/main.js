@@ -2,69 +2,20 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.166/build/three.mod
 import {OBJLoader} from "https://cdn.jsdelivr.net/npm/three@0.166/examples/jsm/loaders/OBJLoader.js";
 import {OrbitControls} from "https://cdn.jsdelivr.net/npm/three@0.166/examples/jsm/controls/OrbitControls.js";
 
+const scene = new THREE.Scene();
+
 // =========================================================
-// Background Image Behind Soldier
+// Scene Container
 // =========================================================
-
-const textureLoader = new THREE.TextureLoader();
-
-textureLoader.load(
-  "../assets/images/background/background-soldierProfile.png",
-  (texture) => {
-    texture.colorSpace = THREE.SRGBColorSpace;
-
-    const backgroundGeometry = new THREE.PlaneGeometry(3.5, 3.5);
-
-    const backgroundMaterial = new THREE.MeshBasicMaterial({
-      map: texture,
-      transparent: true,
-      depthWrite: false,
-      side: THREE.DoubleSide,
-    });
-
-    const backgroundImage = new THREE.Mesh(
-      backgroundGeometry,
-      backgroundMaterial,
-    );
-
-    // پشت مدل
-    backgroundImage.position.set(0, 1, -0.8);
-
-    // عکس عمودی و ثابت
-    backgroundImage.rotation.set(0, 0, 0);
-
-    // همیشه پشت مدل رندر شود
-    backgroundImage.renderOrder = -1;
-
-    scene.add(backgroundImage);
-  },
-  undefined,
-  (error) => {
-    console.error("Background image failed to load:", error);
-  },
-);
-
-/* =========================================================
-   Soldier 3D Model
-   Optimized Version
-========================================================= */
 
 const sceneContainer = document.getElementById("scene");
 
 if (!sceneContainer) {
   console.error("Three.js: #scene element not found.");
 } else {
-  /* =======================================================
-     Scene
-  ======================================================= */
-
-  const scene = new THREE.Scene();
-
-  scene.background = new THREE.Color(0x050505);
-
-  /* =======================================================
-     Camera
-  ======================================================= */
+  // =======================================================
+  // Camera
+  // =======================================================
 
   const camera = new THREE.PerspectiveCamera(
     45,
@@ -73,20 +24,18 @@ if (!sceneContainer) {
     100,
   );
 
-  // کمی دورتر از قبل
   camera.position.set(0, 1.5, 5.5);
 
-  /* =======================================================
-     Renderer
-  ======================================================= */
+  // =======================================================
+  // Renderer
+  // =======================================================
 
   const renderer = new THREE.WebGLRenderer({
     antialias: false,
-    alpha: false,
+    alpha: true,
     powerPreference: "high-performance",
   });
 
-  // محدود کردن فشار GPU
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 
   renderer.setSize(
@@ -103,42 +52,31 @@ if (!sceneContainer) {
 
   sceneContainer.appendChild(renderer.domElement);
 
-  /* =======================================================
-     Controls
-  ======================================================= */
+  // =======================================================
+  // Orbit Controls
+  // =======================================================
 
   const controls = new OrbitControls(camera, renderer.domElement);
 
   controls.enableDamping = true;
   controls.dampingFactor = 0.06;
 
-  // جلوگیری از جابه‌جایی مدل
   controls.enablePan = false;
 
-  // محدود کردن زوم
-  controls.minDistance = 4;
-  controls.maxDistance = 8;
+  // زوم محدود
+  controls.minDistance = 5.0;
+  controls.maxDistance = 6;
 
-  /*
-    محدود کردن زاویه عمودی:
-
-    0       = بالا
-    PI / 2  = روبه‌رو
-    PI      = پایین
-
-    بنابراین کاربر نمی‌تواند زیر مدل را ببیند.
-  */
-
+  // زاویه عمودی
   controls.minPolarAngle = 0.7;
   controls.maxPolarAngle = 1.45;
 
   controls.target.set(0, 1, 0);
-
   controls.update();
 
-  /* =======================================================
-     Lighting
-  ======================================================= */
+  // =======================================================
+  // Lighting
+  // =======================================================
 
   const ambientLight = new THREE.AmbientLight(0xffffff, 1.15);
 
@@ -156,33 +94,33 @@ if (!sceneContainer) {
 
   scene.add(fillLight);
 
-  /* =======================================================
-     Model
-  ======================================================= */
+  // =======================================================
+  // Soldier Model
+  // =======================================================
 
   let soldier = null;
 
   const loader = new OBJLoader();
 
-  const modelPath = "../assets/models/soldier-squidgame.obj";
+  const modelPath = "assets/models/soldier-squidgame.obj";
 
   console.log("Three.js: loading model:", modelPath);
 
   loader.load(
     modelPath,
 
-    /* =====================================================
-       SUCCESS
-    ===================================================== */
+    // =====================================================
+    // SUCCESS
+    // =====================================================
 
     (object) => {
       console.log("Three.js: Soldier model loaded successfully.");
 
       soldier = object;
 
-      /* ---------------------------------------------------
-         Calculate original size
-      --------------------------------------------------- */
+      // ---------------------------------------------------
+      // Original Size
+      // ---------------------------------------------------
 
       const box = new THREE.Box3().setFromObject(soldier);
 
@@ -194,21 +132,21 @@ if (!sceneContainer) {
 
       console.log("Model size:", size.x, size.y, size.z);
 
-      /* ---------------------------------------------------
-         Normalize model size
-      --------------------------------------------------- */
+      // ---------------------------------------------------
+      // Normalize Size
+      // ---------------------------------------------------
 
       if (maxSize > 0) {
-        const targetSize = 3.2;
+        const targetSize = 2.5;
 
         const scale = targetSize / maxSize;
 
         soldier.scale.setScalar(scale);
       }
 
-      /* ---------------------------------------------------
-         Recalculate bounds
-      --------------------------------------------------- */
+      // ---------------------------------------------------
+      // Recalculate Bounds
+      // ---------------------------------------------------
 
       const newBox = new THREE.Box3().setFromObject(soldier);
 
@@ -216,43 +154,38 @@ if (!sceneContainer) {
 
       newBox.getCenter(center);
 
-      /* ---------------------------------------------------
-         Center model
-      --------------------------------------------------- */
+      // ---------------------------------------------------
+      // Center Model
+      // ---------------------------------------------------
 
-      soldier.position.x = -center.x;
+      soldier.position.x = -center.x - 0.08;
 
       soldier.position.z = -center.z;
 
-      /* ---------------------------------------------------
-         Put feet at bottom
-      --------------------------------------------------- */
+      // کمی بالاتر
+      soldier.position.y = -newBox.min.y - 0.05;
 
-      soldier.position.y = -newBox.min.y - 1.01;
+      // نمای شروع: بغل مدل
+      const START_ROTATION = Math.PI;
 
-      /* ===================================================
-         FRONT FACE
-      =================================================== */
+      // نمای پایان: سمت صورت / گوش راست مدل
+      const END_ROTATION = START_ROTATION + Math.PI / 2;
 
-      /*
-        مدل از ابتدا روبه‌روی کاربر قرار می‌گیرد.
+      // برای استفاده در پایان انیمیشن
+      const FRONT_ROTATION = END_ROTATION;
 
-        اگر در مدل فعلی صورت به سمت پشت بود،
-        Math.PI آن را 180 درجه می‌چرخاند.
-      */
+      // نمای شروع انیمیشن
+      const SIDE_ROTATION = START_ROTATION;
 
-      soldier.rotation.y = Math.PI;
-
-      /* ---------------------------------------------------
-         Materials
-      --------------------------------------------------- */
+      // ===================================================
+      // Materials
+      // ===================================================
 
       soldier.traverse((child) => {
         if (!child.isMesh) {
           return;
         }
 
-        // Shadow کاملاً خاموش
         child.castShadow = false;
         child.receiveShadow = false;
 
@@ -263,10 +196,6 @@ if (!sceneContainer) {
             metalness: 0.05,
           });
         } else {
-          /*
-            تنظیمات سبک‌تر متریال
-          */
-
           if (Array.isArray(child.material)) {
             child.material.forEach((material) => {
               material.roughness = 0.75;
@@ -279,32 +208,189 @@ if (!sceneContainer) {
         }
       });
 
-      /* ---------------------------------------------------
-         Add model
-      --------------------------------------------------- */
+      // ===================================================
+      // Add Model
+      // ===================================================
 
       scene.add(soldier);
 
-      /* ---------------------------------------------------
-         Camera target
-      --------------------------------------------------- */
+      // ===================================================
+      // Camera Target
+      // ===================================================
 
-      controls.target.set(0, Math.max(size.y * 0.45, 0.8), 0);
+      controls.target.set(0, 1, 0);
 
       controls.update();
 
-      console.log("Three.js: Soldier ready.");
+      // ===================================================
+      // INTRO ANIMATION
+      // ===================================================
 
       /*
-        اولین رندر بعد از لود مدل
-      */
+       * اول کنترل کاربر کاملاً بسته است.
+       */
 
-      renderer.render(scene, camera);
+      controls.enabled = false;
+
+      /*
+       * مدل از نمای بغل شروع می‌شود.
+       */
+
+      soldier.rotation.y = START_ROTATION;
+
+      /*
+       * زمان شروع انیمیشن
+       */
+
+      const animationStart = performance.now();
+
+      /*
+       * مدت مکث اولیه:
+       * 2.8 ثانیه
+       */
+
+      const sideHoldDuration = 2800;
+
+      /*
+       * مدت چرخش:
+       * 4.2 ثانیه
+       */
+
+      const rotationDuration = 4200;
+
+      /*
+       * فاصله اولیه دوربین
+       */
+
+      const normalCameraZ = camera.position.z;
+
+      /*
+       * شروع خیلی نزدیک
+       */
+
+      const startCameraZ = 3.2;
+
+      /*
+       * کمی پایین‌تر و نزدیک‌تر
+       * برای حس سینمایی
+       */
+
+      const startCameraY = 1.55;
+
+      camera.position.set(0, startCameraY, startCameraZ);
+
+      // ---------------------------------------------------
+      // Easing
+      // ---------------------------------------------------
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      // ---------------------------------------------------
+      // Animation
+      // ---------------------------------------------------
+
+      function introAnimation(now) {
+        if (!soldier) {
+          return;
+        }
+
+        const elapsed = now - animationStart;
+
+        // =================================================
+        // PHASE 1
+        // ثابت از بغل
+        // =================================================
+
+        if (elapsed < sideHoldDuration) {
+          soldier.rotation.y = SIDE_ROTATION;
+
+          camera.position.z = startCameraZ;
+
+          camera.position.y = startCameraY;
+
+          camera.lookAt(controls.target);
+
+          renderer.render(scene, camera);
+
+          requestAnimationFrame(introAnimation);
+
+          return;
+        }
+
+        // =================================================
+        // PHASE 2
+        // چرخش نرم
+        // =================================================
+
+        const rotationElapsed = elapsed - sideHoldDuration;
+
+        let progress = rotationElapsed / rotationDuration;
+
+        progress = Math.min(Math.max(progress, 0), 1);
+
+        const eased = easeInOutCubic(progress);
+
+        /*
+         * چرخش از بغل
+         * به نمای روبه‌رو
+         */
+
+        soldier.rotation.y =
+          START_ROTATION + (END_ROTATION - START_ROTATION) * eased;
+
+        /*
+         * دوربین آرام از نزدیک
+         * به فاصله عادی برمی‌گردد.
+         */
+
+        camera.position.z =
+          startCameraZ +
+          (normalCameraZ - startCameraZ) * easeInOutCubic(progress);
+
+        camera.position.y = startCameraY + (1.5 - startCameraY) * eased;
+
+        camera.lookAt(controls.target);
+
+        renderer.render(scene, camera);
+
+        // =================================================
+        // FINISHED
+        // =================================================
+
+        if (progress >= 1) {
+          soldier.rotation.y = END_ROTATION;
+
+          camera.position.set(0, 1.5, normalCameraZ);
+
+          camera.lookAt(controls.target);
+
+          /*
+           * حالا کاربر می‌تواند مدل را بچرخاند.
+           */
+
+          controls.enabled = true;
+
+          controls.update();
+
+          renderer.render(scene, camera);
+
+          console.log("Three.js: Soldier intro animation finished.");
+
+          return;
+        }
+
+        requestAnimationFrame(introAnimation);
+      }
+
+      // شروع انیمیشن
+      requestAnimationFrame(introAnimation);
     },
 
-    /* =====================================================
-       PROGRESS
-    ===================================================== */
+    // =====================================================
+    // PROGRESS
+    // =====================================================
 
     (xhr) => {
       if (xhr.lengthComputable) {
@@ -314,9 +400,9 @@ if (!sceneContainer) {
       }
     },
 
-    /* =====================================================
-       ERROR
-    ===================================================== */
+    // =====================================================
+    // ERROR
+    // =====================================================
 
     (error) => {
       console.error("Three.js: FAILED TO LOAD SOLDIER MODEL.", error);
@@ -325,9 +411,9 @@ if (!sceneContainer) {
     },
   );
 
-  /* =======================================================
-     Responsive
-  ======================================================= */
+  // =======================================================
+  // Responsive
+  // =======================================================
 
   let resizeFrame = null;
 
@@ -367,21 +453,17 @@ if (!sceneContainer) {
 
   resize();
 
-  /* =======================================================
-     Render Loop
-  ======================================================= */
-
-  /*
-    چون مدل دیگر انیمیشن ندارد،
-    نیازی نیست در هر فریم رندر کنیم.
-
-    Three.js فقط هنگام تعامل کاربر
-    با مدل رندر می‌شود.
-  */
+  // =======================================================
+  // Normal Interaction Render
+  // =======================================================
 
   let renderRequested = false;
 
   function requestRender() {
+    if (!controls.enabled) {
+      return;
+    }
+
     if (renderRequested) {
       return;
     }
@@ -397,15 +479,11 @@ if (!sceneContainer) {
     });
   }
 
-  /* -------------------------------------------------------
-     Mouse / Touch interaction
-  ------------------------------------------------------- */
-
   controls.addEventListener("change", requestRender);
 
-  /* -------------------------------------------------------
-     Initial render
-  ------------------------------------------------------- */
+  // =======================================================
+  // Initial Render
+  // =======================================================
 
   renderer.render(scene, camera);
 }
