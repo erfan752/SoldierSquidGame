@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: samimFont;
-    src: url(../samim-font-v2.0.1/Samim.ttf);
+    src: url(../font/Samim.ttf);
     font-style: normal;
 }
 
@@ -27,6 +27,12 @@ header {
     height: 200px;
     background-color: #56565690;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+#profile img{
+    width: -webkit-fill-available;
+    padding: 10px;
 }
 
 #account-info {

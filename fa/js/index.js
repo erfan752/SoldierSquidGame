@@ -1,58 +1,200 @@
-const header = document.querySelector("header");
+"use strict";
+
+/* =========================
+   Header
+========================= */
+
+const header = document.querySelector(".site-header");
 
 function updateHeader() {
-  if (window.scrollY === 0) {
-    header.classList.remove("scrolled");
-    document.querySelector("header .header-item:first-child").style.right =
-      window.wi;
-  } else {
-    header.classList.add("scrolled");
-  }
+  if (!header) return;
+
+  header.classList.toggle("scrolled", window.scrollY > 10);
 }
 
-window.addEventListener("scroll", updateHeader);
+let headerTicking = false;
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (headerTicking) return;
+
+    headerTicking = true;
+
+    requestAnimationFrame(() => {
+      updateHeader();
+      headerTicking = false;
+    });
+  },
+  {passive: true},
+);
 
 updateHeader();
 
-// انیمیشن تعداد کاربران ماهانه سرباز
-const monthlyUsers = 23;
+/* =========================
+   Scroll Reveal
+========================= */
 
-const counter = document.getElementById("monthly-users");
+const revealElements = document.querySelectorAll(".reveal");
 
-const duration = 3500;
-const startTime = performance.now();
+if (revealElements.length > 0 && "IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
+
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+} else {
+  revealElements.forEach((element) => {
+    element.classList.add("is-visible");
+  });
+}
+
+/* =========================
+   Staggered Cards
+========================= */
+
+const staggerContainers = document.querySelectorAll(".reveal-stagger");
+
+staggerContainers.forEach((container) => {
+  const children = Array.from(container.children);
+
+  children.forEach((child, index) => {
+    child.style.transitionDelay = `${index * 120}ms`;
+    child.classList.add("reveal");
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    children.forEach((child) => {
+      child.classList.add("is-visible");
+    });
+
+    return;
+  }
+
+  const staggerObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -30px 0px",
+    },
+  );
+
+  children.forEach((child) => {
+    staggerObserver.observe(child);
+  });
+});
+
+/* =========================
+   Monthly Users Counter
+========================= */
+
+const monthlyUsers = document.getElementById("monthly-users");
+
+const MONTHLY_USERS = 50;
+const COUNTER_DURATION = 1800;
 
 function formatNumber(value) {
-  if ((value >= 1000) & (value < 1000000)) {
-    return (
-      (value / 1000).toFixed(value % 1000 === 0 ? 0 : 2).replace(/\.?0+$/, "") +
-      "K+"
-    );
+  if (value >= 1_000_000) {
+    const number = (value / 1_000_000)
+      .toFixed(value % 1_000_000 === 0 ? 0 : 2)
+      .replace(/\.?0+$/, "");
+
+    return `${number}M+`;
   }
 
-  if (value >= 1000000) {
-    return (
-      (value / 1000000)
-        .toFixed(value % 1000000 === 0 ? 0 : 2)
-        .replace(/\.?0+$/, "") + "M+"
-    );
+  if (value >= 1_000) {
+    const number = (value / 1_000)
+      .toFixed(value % 1_000 === 0 ? 0 : 2)
+      .replace(/\.?0+$/, "");
+
+    return `${number}K+`;
   }
 
-  return String(Math.floor(value)).padStart(3, "0") + "+";
+  return `${Math.floor(value).toString().padStart(3, "0")}+`;
 }
 
-function updateCounter(currentTime) {
-  const progress = Math.min((currentTime - startTime) / duration, 1);
+function animateCounter() {
+  if (!monthlyUsers) return;
 
-  const value = Math.floor(progress * monthlyUsers);
+  const startTime = performance.now();
 
-  counter.textContent = formatNumber(value);
+  function update(currentTime) {
+    const progress = Math.min((currentTime - startTime) / COUNTER_DURATION, 1);
 
-  if (progress < 1) {
-    requestAnimationFrame(updateCounter);
+    // Ease-out cubic
+    const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+    const value = Math.floor(easedProgress * MONTHLY_USERS);
+
+    monthlyUsers.textContent = formatNumber(value);
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      monthlyUsers.textContent = formatNumber(MONTHLY_USERS);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+/* =========================
+   Counter Observer
+========================= */
+
+if (monthlyUsers) {
+  if ("IntersectionObserver" in window) {
+    const counterObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+
+        animateCounter();
+
+        observer.disconnect();
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    counterObserver.observe(monthlyUsers);
   } else {
-    counter.textContent = formatNumber(monthlyUsers);
+    animateCounter();
   }
 }
 
-requestAnimationFrame(updateCounter);
+/* =========================
+   Menu Button
+========================= */
+
+const menuButton = document.querySelector(".menu-button");
+
+if (menuButton) {
+  menuButton.addEventListener("click", () => {
+    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+
+    menuButton.setAttribute("aria-expanded", String(!isExpanded));
+  });
+}

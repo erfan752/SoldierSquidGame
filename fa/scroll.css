@@ -1,34 +1,31 @@
-:root {
-  --soldier-btn-pink: #e63d7e;
-  --soldier-btn-pink-hover: #cc2f6b;
-  --soldier-white: #f0f0f0;
-  --soldier-white-hover: #c2c2c2;
-}
-
 ::-webkit-scrollbar {
-  width: 10px;
+width: 10px;
+height: 10px;
 }
 
 ::-webkit-scrollbar-button {
-  background-color: var(--soldier-white);
-  border-radius: 3px;
+background-color: var(--soldier-white);
+border-radius: 3px;
 }
 
-::-webkit-scrollbar-button:hover{
-    background-color: var(--soldier-white-hover);
+::-webkit-scrollbar-button:hover {
+background-color: var(--soldier-white-hover);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--soldier-btn-pink);
-  border-radius: 15px;
-  height: 10px;
+background-color: var(--soldier-btn-pink);
+border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--soldier-btn-pink-hover);
-  cursor: pointer;
+background-color: var(--soldier-btn-pink-hover);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #2c2c2c;
+background-color: #2c2c2c;
+}
+
+html {
+scrollbar-color: var(--soldier-btn-pink) #2c2c2c;
+scrollbar-width: auto;
 }
