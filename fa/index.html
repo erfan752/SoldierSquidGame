@@ -10,12 +10,12 @@
       content="سرباز بازی مرکب؛ رباتی برای اجرای بازی‌های الهام‌گرفته از سریال Squid Game در گروه‌های بله و تلگرام، همراه با چت‌بات و امکانات متنوع."
     />
 
-    <meta name="theme-color" content="#535353" />
+    <meta name="theme-color" content="#000" />
 
-    <link rel="icon" href="favicon.jpg" type="image/jpeg" />
+    <link rel="icon" href="../favicon.jpg" type="image/jpeg" />
 
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="scroll.css" />
+    <link rel="stylesheet" href="css/scroll.css" />
 
     <title>سرباز بازی مرکب - نخستین ربات سرباز بازی مرکب در بله</title>
   </head>
@@ -36,7 +36,7 @@
       <div class="header-item header-logo">
         <a href="#" aria-label="صفحه اصلی سرباز">
           <img
-            src="assets/images/logo/logo-long.jpg"
+            src="../shared/images/logo/logo-long.png"
             alt="لوگوی رسمی سرباز بازی مرکب"
           />
         </a>
@@ -47,8 +47,10 @@
         type="button"
         aria-label="باز کردن منو"
         aria-expanded="false"
+        id="menu-toggle-btn"
       >
         <svg
+          class="icon-menu"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -64,8 +66,53 @@
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
+
+        <svg
+          class="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="30"
+          height="30"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
       </button>
     </header>
+
+    <!-- =========================
+     Nav Menu
+========================== -->
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-drawer" id="nav-drawer" aria-label="منوی اصلی">
+      <div class="nav-drawer-header">
+        <img
+          src="../shared/images/logo/logo-long.png"
+          alt="لوگوی سرباز"
+          class="nav-drawer-logo"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">صفحه اصلی</a></li>
+        <li><a href="pages/pricing.html">تعرفه اشتراک</a></li>
+        <li><a href="pages/events.html">ایونت‌ها</a></li>
+        <li><a href="pages/winners.html">برندگان</a></li>
+        <li><a href="pages/user.html">حساب کاربری</a></li>
+      </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="pages/signin.html" class="nav-signin-btn">ورود / ثبت‌نام</a>
+      </div>
+    </nav>
 
     <main>
       <!-- =========================
@@ -138,7 +185,7 @@
             <nav id="monthly-users" aria-label="تعداد کاربران ماهانه">000+</nav>
 
             <img
-              src="assets/images/soldier-profile.webp"
+              src="../shared/images/soldier-profile.webp"
               alt="پروفایل سرباز"
               width="150"
               height="150"
@@ -182,7 +229,7 @@
 
               <nav class="view-version-btn" aria-label="لینک‌های نسخه بله">
                 <a
-                  href="https://ble.ir/soliersquidgame_bot"
+                  href="https://ble.ir/soldiersquidgame_bot"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -190,7 +237,7 @@
                 </a>
 
                 <a
-                  href="https://ble.ir/soliersquidgame"
+                  href="https://ble.ir/soldiersquidgame"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -238,59 +285,30 @@
       </section>
 
       <!-- =========================
-           News
+      News
       ========================== -->
       <section id="news" class="card reveal">
-        <h2>مقاله‌ها:</h2>
+        <div class="section-header-with-link">
+          <h2>مقاله‌ها:</h2>
+          <a href="pages/articles.html" class="see-all-link green">مشاهده همه</a>
+        </div>
 
-        <div class="news-list">
-          <article class="news-card"></article>
-          <article class="news-card"></article>
-          <article class="news-card"></article>
+        <div class="news-list" id="news-list">
+          <!-- کارت‌ها با JS از articles.json ساخته می‌شوند -->
         </div>
       </section>
 
       <!-- =========================
-           Events
+     Events
       ========================== -->
       <section id="events" class="reveal">
-        <h2>ایونت‌ها:</h2>
+        <div class="section-header-with-link">
+          <h2>ایونت‌ها:</h2>
+          <a href="pages/events.html" class="see-all-link">مشاهده همه</a>
+        </div>
 
         <div id="events-list">
-          <article class="event-card reveal">
-            <h3>تورنومنت شهریور ماه</h3>
-
-            <p>
-              هر ماه از همه گروه‌ها بازیکنی که بهترین بازی را در آن گروه داشته
-              باشد به گروه تورنومنت دعوت خواهد شد و جایزه بزرگی به برنده اهدا
-              می‌شود.
-            </p>
-
-            <time datetime="1405-07-01"> تاریخ برگزاری: 1405/07/01 </time>
-
-            <a href="#">
-              <button class="view-more-event" type="button">دیدن جزئیات</button>
-            </a>
-          </article>
-
-          <article class="event-card reveal">
-            <h3>فینال نهایی تابستان</h3>
-
-            <p>
-              هر سه ماه و از هر گروه، 3 بازیکن برتری که بازی خوبی داشته‌اند به
-              گروه دعوت می‌شوند و بزرگ‌ترین جایزه به سه برنده اهدا می‌شود.
-            </p>
-
-            <time datetime="1405-06-31"> تاریخ برگزاری: 1405/06/31 </time>
-
-            <a href="#">
-              <button class="view-more-event" type="button">دیدن جزئیات</button>
-            </a>
-          </article>
-
-          <div class="no-events">
-            <span>ایونت دیگری نیست.</span>
-          </div>
+          <!-- کارت‌ها با JS از events.json ساخته می‌شوند -->
         </div>
       </section>
     </main>
@@ -305,7 +323,9 @@
     </footer>
 
     <script src="js/index.js"></script>
-
     <script type="module" src="js/main.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/events-preview.js"></script>
+    <script src="js/articles-preview.js"></script>
   </body>
 </html>

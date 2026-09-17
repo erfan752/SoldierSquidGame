@@ -1,0 +1,276 @@
+@font-face {
+  font-family: "samimFont";
+  src: url("../../shared/font/Samim.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #020304;
+  font-family: "samimFont", sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --soldier-pink: #ec4899;
+  --soldier-btn-pink: #e63d7e;
+  --soldier-btn-pink-hover: #cc2f6b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  -webkit-user-drag: none;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+/* =========================
+   Back Link
+========================= */
+
+.back-home-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  font-size: 0.85rem;
+  color: #ccc;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.back-home-link:hover {
+  border-color: var(--soldier-pink);
+  color: var(--soldier-pink);
+}
+
+/* =========================
+   Layout
+========================= */
+
+.signin-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 16px 40px;
+}
+
+/* =========================
+   Signin Card
+========================= */
+
+.signin-card {
+  width: 100%;
+  max-width: 520px;
+  background: black;
+  border: 1px solid var(--soldier-pink);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 -15px 20px 0px var(--soldier-pink);
+}
+
+.signin-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.signin-logo img {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* =========================
+   Form
+========================= */
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.signin-title {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 2px solid white;
+  outline-color: var(--soldier-pink);
+  background-color: #ffffff92;
+  font: inherit;
+}
+
+input::placeholder {
+  color: #0203048e;
+}
+
+/* --- ID field --- */
+
+.id-field-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.id-input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.id-input-wrapper input {
+  flex: 1;
+}
+
+.id-prefix {
+  flex-shrink: 0;
+  width: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+#createId-btn {
+  flex-shrink: 0;
+  padding: 8px 5px;
+  color: black;
+  border-radius: 4px;
+  background-color: var(--soldier-btn-pink);
+  border: 1px solid var(--soldier-btn-pink);
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+#createId-btn:hover {
+  background-color: var(--soldier-btn-pink-hover);
+}
+
+/* --- Password field --- */
+
+.password-field-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.password-field-group input {
+  flex: 1;
+}
+
+#togglePassword-btn {
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--soldier-btn-pink);
+}
+
+/* --- Submit --- */
+
+#submit-btn {
+  background-color: var(--soldier-btn-pink);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  transition: background-color 0.15s ease;
+}
+
+#submit-btn:hover {
+  background-color: var(--soldier-btn-pink-hover);
+}
+
+/* =========================
+   Footer Text
+========================= */
+
+.agreement,
+.agreement a {
+  text-align: center;
+  color: #ffffffa9;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+.agreement a {
+  color: var(--soldier-pink);
+}
+
+#login-options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.help-login a,
+.forget-password a {
+  color: var(--soldier-pink);
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 500px) {
+  .signin-main {
+    padding: 70px 12px 30px;
+  }
+
+  .id-field-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  #createId-btn {
+    width: 100%;
+  }
+}

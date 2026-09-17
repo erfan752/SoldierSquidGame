@@ -1,6 +1,7 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.166/build/three.module.js";
-import {OBJLoader} from "https://cdn.jsdelivr.net/npm/three@0.166/examples/jsm/loaders/OBJLoader.js";
+import {GLTFLoader} from "https://cdn.jsdelivr.net/npm/three@0.166/examples/jsm/loaders/GLTFLoader.js";
 import {OrbitControls} from "https://cdn.jsdelivr.net/npm/three@0.166/examples/jsm/controls/OrbitControls.js";
+import {MeshoptDecoder} from "https://cdn.jsdelivr.net/npm/three@0.166/examples/jsm/libs/meshopt_decoder.module.js";
 
 const scene = new THREE.Scene();
 
@@ -100,9 +101,10 @@ if (!sceneContainer) {
 
   let soldier = null;
 
-  const loader = new OBJLoader();
+  const loader = new GLTFLoader();
 
-  const modelPath = "assets/models/soldier-squidgame.obj";
+  loader.setMeshoptDecoder(MeshoptDecoder);
+  const modelPath = "../../shared/models/soldier.glb";
 
   console.log("Three.js: loading model:", modelPath);
 
@@ -113,10 +115,10 @@ if (!sceneContainer) {
     // SUCCESS
     // =====================================================
 
-    (object) => {
+    (gltf) => {
       console.log("Three.js: Soldier model loaded successfully.");
 
-      soldier = object;
+      soldier = gltf.scene;
 
       // ---------------------------------------------------
       // Original Size

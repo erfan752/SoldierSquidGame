@@ -1,107 +1,255 @@
 <!doctype html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg" />
     <link rel="stylesheet" href="../css/user.css" />
-    <link rel="shortcut icon" href="../favicon.jpg" type="image" />
-    <title>داشبورد - سرباز بازی مرکب</title>
+    <title>حساب کاربری - سرباز بازی مرکب</title>
   </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="صفحه اصلی سرباز">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="لوگوی رسمی سرباز بازی مرکب"
+          />
+        </a>
+      </div>
 
-  <body dir="rtl">
-    <header>
-      <img src="../assets/images/logo/logo-long.jpg" alt="" />
-      <div style="display: inline-block; color: aliceblue">☰</div>
-      <nav style="display: none">
-        <ul>
-          <li>صفحه اصلی</li>
-          <li>تعرفه ها</li>
-          <li>تورنومنت فینال</li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="account-info">
-        <div
-          style="display: flex; align-items: center; gap: 20px; padding: 10px"
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+        id="menu-toggle-btn"
+      >
+        <svg
+          class="icon-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
         >
-          <div id="profile"><img src="../assets/images/profile-icon/456-profile-icon.jpg" alt="" /></div>
-          <div>
-            <h1>داشبورد حساب</h1>
-            <div id="account-data">
-              <div class="item-data">
-                <div>
-                  <span>شناسه :</span>
-                  <span id="userid">SDL - 1234567</span>
-                </div>
-                <div>
-                  <span><button id="copyId-btn">کپی شناسه</button></span>
-                </div>
-              </div>
-              <div class="item-data">
-                <div>
-                  <span>رمز عبور :</span>
-                  <span>********</span>
-                </div>
-                <div>
-                  <span><button>تغییر رمز عبور</button></span>
-                </div>
-              </div>
-              <div class="item-data">
-                <div>
-                  <span>ایمیل بازیابی :</span>
-                </div>
-                <div>
-                  <span><button>افزودن ایمیل بازیابی</button></span>
-                </div>
-              </div>
-              <div class="item-data">
-                <div>
-                  <span>آواتار :</span>
-                </div>
-                <div>
-                  <span><button>تغییر آواتار</button></span>
-                </div>
-              </div>
-            </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        <svg
+          class="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-drawer" id="nav-drawer" aria-label="منوی اصلی">
+      <div class="nav-drawer-header">
+        <img
+          src="../../shared/images/logo/logo-long.png"
+          alt="لوگوی سرباز"
+          class="nav-drawer-logo"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">صفحه اصلی</a></li>
+        <li><a href="pricing.html">تعرفه اشتراک</a></li>
+        <li><a href="events.html">ایونت‌ها</a></li>
+        <li><a href="winners.html">برندگان</a></li>
+        <li><a href="user.html">حساب کاربری</a></li>
+      </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="signin.html" class="nav-signin-btn">ورود / ثبت‌نام</a>
+      </div>
+    </nav>
+
+    <main class="user-main">
+      <!-- =========================
+           Account Summary
+      ========================== -->
+      <section class="account-card">
+        <div class="avatar-block">
+          <div class="avatar-diamond">
+            <img
+              id="avatar-img"
+              src="../../shared/images/profile-icon/456-profile-icon.jpg"
+              alt="آواتار بازیکن"
+              data-number="456"
+            />
+          </div>
+          <span class="avatar-number" id="avatar-number">456</span>
+        </div>
+
+        <div class="account-info">
+          <div class="info-row">
+            <span class="info-label">شناسه:</span>
+            <span class="info-value" id="user-id">SDL-123456</span>
+            <button class="btn-small" type="button" id="copy-id-btn">
+              کپی
+            </button>
+          </div>
+
+          <div class="info-row" data-own-only>
+            <span class="info-label">ایمیل:</span>
+            <span class="info-value" id="user-email">ثبت نشده</span>
+            <button class="btn-small" type="button" id="email-btn">
+              ثبت ایمیل
+            </button>
+          </div>
+
+          <div class="info-row" data-own-only>
+            <span class="info-label">رمز:</span>
+            <span class="info-value">••••••</span>
+            <button class="btn-small" type="button" id="password-btn">
+              تغییر رمز
+            </button>
+          </div>
+
+          <div class="info-row" data-own-only>
+            <span class="info-label">آواتار:</span>
+            <button class="btn-small" type="button" id="avatar-btn">
+              تغییر آواتار
+            </button>
+          </div>
+
+          <div class="other-actions" data-other-only hidden>
+            <button
+              class="btn-primary-outline"
+              type="button"
+              id="add-friend-btn"
+            >
+              افزودن به دوستان
+            </button>
+
+            <a
+              href="#"
+              class="platform-link-btn bale"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              دیدن پروفایل بله
+            </a>
+
+            <a
+              href="#"
+              class="platform-link-btn telegram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              دیدن پروفایل تلگرام
+            </a>
           </div>
         </div>
-        <div id="subscriotion-status">
-          <span id="no-subscriotion">اشتراک غیرفعال</span>
+
+        <div class="subscription-status">
+          <span class="status-label">اشتراک:</span>
+          <span class="status-value inactive" id="subscription-status"
+            >غیر فعال</span
+          >
         </div>
       </section>
-      <section>
-        <div>
-          <div>
-            <h2>تاریخچه اشتراک ها</h2>
-            <div>
-              <button>اشتراک هدیه</button>
-              <button>خرید اشتراک</button>
-            </div>
-          </div>
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>مدت زمان</th>
-                  <th>آیدی گروه</th>
-                  <th>آیدی رئیس</th>
-                  <th>تاریخ انقضا</th>
-                  <th>شناسه خریدار</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+
+      <!-- =========================
+           Subscription History
+      ========================== -->
+      <section class="table-section">
+        <div class="table-header">
+          <h2>سابقه اشتراک‌ها:</h2>
+          <div class="table-actions">
+            <button class="btn-primary" type="button">خرید اشتراک</button>
           </div>
         </div>
-        <div></div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>پلتفرم</th>
+                <th>آیدی عددی گروه</th>
+                <th>مدت زمان اشتراک</th>
+                <th>تاریخ خرید</th>
+                <th>تاریخ انقضا</th>
+              </tr>
+            </thead>
+            <tbody id="subscriptions-body">
+              <tr>
+                <td colspan="5" class="empty-row">
+                  هنوز اشتراکی ثبت نشده است.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =========================
+           Tournament History
+      ========================== -->
+      <section class="table-section" data-own-only>
+        <div class="table-header">
+          <h2>سابقه اشتراک‌ها:</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>پلتفرم</th>
+                <th>تاریخ برگزاری</th>
+                <th>نام تورنومنت</th>
+                <th>جایزه</th>
+                <th>برنده</th>
+                <th>وضعیت شما</th>
+              </tr>
+            </thead>
+            <tbody id="tournaments-body">
+              <tr>
+                <td colspan="6" class="empty-row">
+                  هنوز در تورنومنتی شرکت نکرده‌اید.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </main>
-    <div id="absolote-card" style="display: none">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>کلیه داده‌ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
+    </footer>
+
     <script src="../js/user.js"></script>
+    <script src="../js/nav.js"></script>
   </body>
 </html>

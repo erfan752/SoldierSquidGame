@@ -1,0 +1,568 @@
+@font-face {
+  font-family: "samimFont";
+  src: url("../../shared/font/Samim.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "regular-font";
+  src: url("../../shared/font/Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "digital-font";
+  src: url("../../shared/font/DigitalNumbers.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0a0a0a;
+  background-image:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(212, 175, 55, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      rgba(212, 175, 55, 0.06),
+      transparent 45%
+    );
+  font-family: "samimFont", sans-serif;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --gold: #d4af37;
+  --gold-bright: #f2d675;
+  --gold-dim: #8a6d1f;
+  --soldier-white: #f0f0f0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   Header
+========================= */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: 70px;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.94);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  z-index: 1000;
+}
+
+.header-logo img {
+  display: block;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+/* =========================
+   Menu Button (Icon Toggle)
+========================= */
+
+.menu-button {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-button:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+.icon-close {
+  display: none;
+}
+
+.menu-button.is-active .icon-menu {
+  display: none;
+}
+
+.menu-button.is-active .icon-close {
+  display: block;
+}
+
+/* =========================
+   Nav Overlay
+========================= */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1090;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.is-visible {
+  opacity: 1;
+}
+
+.nav-overlay[hidden] {
+  display: none;
+}
+
+/* =========================
+   Nav Drawer
+========================= */
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(300px, 80vw);
+  background-color: #000;
+  border-left: 1px solid rgba(212, 175, 55, 0.2);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 20px 0;
+}
+
+.nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+.nav-drawer-header {
+  padding: 10px 24px 24px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  margin-bottom: 10px;
+}
+
+.nav-drawer-logo {
+  max-height: 42px;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.nav-links li {
+  margin-bottom: 4px;
+}
+
+.nav-links a {
+  display: block;
+  padding: 13px 16px;
+  border-radius: 10px;
+  color: var(--soldier-white);
+  font-size: 0.95rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(212, 175, 55, 0.12);
+  color: var(--gold);
+}
+
+.nav-drawer-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav-signin-btn {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--gold-dim);
+  color: #000;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-signin-btn:hover {
+  background-color: var(--gold);
+}
+
+@media (max-width: 400px) {
+  .nav-drawer {
+    width: 85vw;
+  }
+}
+
+/* =========================
+   Reveal
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* =========================
+   Hero
+========================= */
+
+.hero-pig-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.35));
+  animation: pig-float 3.5s ease-in-out infinite;
+}
+
+@keyframes pig-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-pig-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.winners-hero {
+  max-width: 780px;
+  margin: 90px auto 50px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+
+
+.winners-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.5;
+  margin-bottom: 18px;
+
+  background: linear-gradient(
+    90deg,
+    var(--gold-dim),
+    var(--gold-bright),
+    var(--gold-dim)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.winners-hero p {
+  font-size: 1rem;
+  line-height: 2;
+  color: #b8b8b8;
+}
+
+/* =========================
+   Season Block
+========================= */
+
+.season-block {
+  max-width: 1100px;
+  margin: 0 auto 70px;
+  padding: 0 20px;
+}
+
+.season-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.season-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--gold-bright);
+  margin-bottom: 6px;
+}
+
+.season-sub {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* =========================
+   Podium (Top 3)
+========================= */
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.podium-place {
+  position: relative;
+  background: linear-gradient(180deg, #141414, #000);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 24px 18px 20px;
+  width: 230px;
+  text-align: center;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.podium-place:hover {
+  transform: translateY(-8px);
+}
+
+.podium-place.rank-1 {
+  order: 2;
+  padding-top: 36px;
+  border-color: var(--gold);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+}
+
+.podium-place.rank-2 {
+  order: 1;
+  margin-bottom: -16px;
+}
+
+.podium-place.rank-3 {
+  order: 3;
+  margin-bottom: -30px;
+}
+
+.crown {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7));
+}
+
+.rank-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: "digital-font", monospace;
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.podium-avatar {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+}
+
+.rank-2 .podium-avatar,
+.rank-3 .podium-avatar {
+  width: 68px;
+  height: 68px;
+  border-color: #8a8a8a;
+  box-shadow: none;
+}
+
+.podium-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.podium-username {
+  color: var(--soldier-white);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.podium-prize {
+  display: inline-block;
+  font-family: "regular-font", monospace;
+  font-size: 0.85rem;
+  color: var(--gold-bright);
+  border-top: 1px dashed rgba(212, 175, 55, 0.3);
+  padding-top: 10px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* =========================
+   Other Ranks List
+========================= */
+
+.other-ranks {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rank-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #111;
+  border: 1px solid #262626;
+  border-radius: 10px;
+  padding: 12px 18px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.rank-row:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateX(-3px);
+}
+
+.rank-row .rank-number {
+  font-family: "digital-font", monospace;
+  color: var(--gold-dim);
+  font-size: 1rem;
+  min-width: 28px;
+}
+
+.rank-row img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+}
+
+.rank-row .rank-username {
+  flex: 1;
+  color: var(--soldier-white);
+  font-size: 0.9rem;
+}
+
+.rank-row .rank-prize {
+  color: var(--gold-bright);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   No Winners
+========================= */
+
+.no-winners {
+  text-align: center;
+  padding: 80px 20px;
+  color: #777;
+}
+
+/* =========================
+   Footer
+========================= */
+
+#copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  padding: 25px 20px;
+  background-color: black;
+  color: var(--gold);
+  line-height: 1.8;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 700px) {
+  .podium {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .podium-place.rank-1,
+  .podium-place.rank-2,
+  .podium-place.rank-3 {
+    order: 0;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rank-row {
+    flex-wrap: wrap;
+  }
+
+  .rank-row .rank-prize {
+    width: 100%;
+    padding-right: 44px;
+  }
+}

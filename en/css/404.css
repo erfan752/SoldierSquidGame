@@ -1,0 +1,39 @@
+@font-face {
+  font-family: Regular;
+  src: url(../font/ShareTech-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  font-family: Regular;
+}
+
+body {
+  background-color: black;
+}
+
+#image-banner {
+  width: 100%;
+  height: auto;
+}
+
+#titles {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#titles h1 {
+  font-size: 9em;
+  border: 5px solid #ffffffba;
+  background-color: #ffffff45;
+}
+
+#titles p {
+  font-size: 2.5em;
+  color: #ffffffba;
+}

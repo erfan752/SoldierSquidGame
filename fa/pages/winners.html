@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta
+      name="description"
+      content="برندگان تورنومنت‌های سرباز بازی مرکب؛ لیست کامل قهرمانان هر فصل و جوایز آن‌ها."
+    />
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="../css/winners.css" />
+    <title>برندگان - سرباز بازی مرکب</title>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="صفحه اصلی سرباز">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="لوگوی رسمی سرباز بازی مرکب"
+          />
+        </a>
+      </div>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+        id="menu-toggle-btn"
+      >
+        <svg
+          class="icon-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        <svg
+          class="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </header>
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-drawer" id="nav-drawer" aria-label="منوی اصلی">
+      <div class="nav-drawer-header">
+        <img
+          src="../../shared/images/logo/logo-long.png"
+          alt="لوگوی سرباز"
+          class="nav-drawer-logo"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">صفحه اصلی</a></li>
+        <li><a href="pricing.html">تعرفه اشتراک</a></li>
+        <li><a href="events.html">ایونت‌ها</a></li>
+        <li><a href="winners.html">برندگان</a></li>
+        <li><a href="user.html">حساب کاربری</a></li>
+      </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="signin.html" class="nav-signin-btn">ورود / ثبت‌نام</a>
+      </div>
+    </nav>
+    <main>
+      <!-- =========================
+           Intro
+      ========================== -->
+      <section class="winners-hero reveal">
+        <img
+          src="../../shared/images/icons/gold-pigi.png"
+          alt="قلک طلایی جوایز"
+          class="hero-pig-icon"
+        />
+        <h1>برندگان تورنومنت‌ها</h1>
+        <p>
+          اینجا جایگاه کسانی‌ست که در سخت‌ترین رقابت‌های سرباز درخشیدند و نامشان
+          برای همیشه ثبت شد.
+        </p>
+      </section>
+
+      <!-- =========================
+           Seasons List (JS injects here)
+      ========================== -->
+      <div id="seasons-container" class="reveal-stagger">
+        <!-- هر فصل با JS از winners.json ساخته می‌شود -->
+      </div>
+
+      <div class="no-winners" id="no-winners" hidden>
+        <span>هنوز برنده‌ای ثبت نشده است.</span>
+      </div>
+    </main>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>کلیه داده‌ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
+    </footer>
+
+    <script src="../js/winners.js"></script>
+    <script src="../js/nav.js"></script>
+  </body>
+</html>

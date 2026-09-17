@@ -1,0 +1,68 @@
+/* =========================
+   Loading Overlay (shared component)
+========================= */
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.882);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+.loading-overlay[hidden] {
+  display: none;
+}
+
+.loading-overlay.is-hiding {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-card {
+  gap: 30px;
+  background-color: black;
+  width: 100%;
+  max-width: 419px;
+  padding: 40px 24px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-card img {
+  width: 100%;
+  max-width: 419px;
+  height: auto;
+}
+
+.loading-icon {
+  width: 40px;
+  height: 40px;
+  animation: loading-spin 0.9s linear infinite;
+}
+
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-card {
+    padding: 30px 16px;
+    gap: 20px;
+  }
+}

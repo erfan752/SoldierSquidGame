@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta
+      name="description"
+      content="لیست ایونت‌ها و تورنومنت‌های سرباز بازی مرکب؛ زمان برگزاری، جوایز و شرایط شرکت."
+    />
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="../css/events.css" />
+    <title>ایونت‌ها - سرباز بازی مرکب</title>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="صفحه اصلی سرباز">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="لوگوی رسمی سرباز بازی مرکب"
+          />
+        </a>
+      </div>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+        id="menu-toggle-btn"
+      >
+        <svg
+          class="icon-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        <svg
+          class="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </header>
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-drawer" id="nav-drawer" aria-label="منوی اصلی">
+      <div class="nav-drawer-header">
+        <img
+          src="../../shared/images/logo/logo-long.png"
+          alt="لوگوی سرباز"
+          class="nav-drawer-logo"
+        />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">صفحه اصلی</a></li>
+        <li><a href="pricing.html">تعرفه اشتراک</a></li>
+        <li><a href="events.html">ایونت‌ها</a></li>
+        <li><a href="winners.html">برندگان</a></li>
+        <li><a href="user.html">حساب کاربری</a></li>
+      </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="signin.html" class="nav-signin-btn">ورود / ثبت‌نام</a>
+      </div>
+    </nav>
+    <main>
+      <!-- =========================
+           Intro
+      ========================== -->
+      <section class="events-hero reveal">
+        <span class="hero-eyebrow">تورنومنت‌ها</span>
+        <h1>ایونت‌های سرباز</h1>
+        <p>
+          هر بازیکنی که در گروه‌ها بدرخشد، شانس دعوت‌شدن به این تورنومنت‌ها و
+          رقابت برای بزرگ‌ترین جوایز سرباز را دارد.
+        </p>
+      </section>
+
+      <!-- =========================
+           Filter Tabs
+      ========================== -->
+      <section class="filter-bar reveal">
+        <button class="filter-btn is-active" type="button" data-filter="all">
+          همه
+        </button>
+        <button class="filter-btn" type="button" data-filter="upcoming">
+          پیش‌رو
+        </button>
+        <button class="filter-btn" type="button" data-filter="ongoing">
+          درحال برگزاری
+        </button>
+        <button class="filter-btn" type="button" data-filter="ended">
+          پایان‌یافته
+        </button>
+      </section>
+
+      <!-- =========================
+           Events (same structure as index.html)
+      ========================== -->
+      <section id="events" class="reveal">
+        <h2>ایونت‌ها:</h2>
+
+        <div id="events-list">
+          <!-- کارت‌ها با JS از events.json ساخته می‌شوند -->
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>کلیه داده‌ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
+    </footer>
+
+    <script src="../js/events.js"></script>
+    <script src="../js/nav.js"></script>
+  </body>
+</html>

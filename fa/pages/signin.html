@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="../css/signin.css" />
+    <title>ورود - سرباز بازی مرکب</title>
+  </head>
+  <body>
+    <a href="../index.html" class="back-home-link" aria-label="بازگشت به صفحه اصلی">
+      ← بازگشت به سرباز
+    </a>
+
+    <main class="signin-main">
+      <section class="signin-card">
+        <div class="signin-logo">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="لوگوی سرباز بازی مرکب"
+          />
+        </div>
+
+        <form action="#" id="form-elements" class="signin-form">
+          <h1 class="signin-title">ورود / ثبت نام</h1>
+
+          <label for="number-input">
+            لطفا شناسه خود را وارد کنید
+
+            <div class="id-field-group">
+              <div class="id-input-wrapper">
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="شناسه را وارد کنید"
+                  id="number-input"
+                  required
+                />
+                <span class="id-prefix">- SDL</span>
+              </div>
+
+              <button type="button" id="createId-btn">ساخت شناسه ↻</button>
+            </div>
+          </label>
+
+          <label for="password-input">
+            رمز را وارد کنید
+
+            <div class="password-field-group">
+              <input
+                type="password"
+                id="password-input"
+                placeholder="رمز حساب را وارد کنید"
+              />
+
+              <button type="button" id="togglePassword-btn" aria-label="نمایش رمز">
+                <img
+                  src="../../shared/images/icons/soldier-cloase.png"
+                  alt=""
+                  width="35"
+                />
+              </button>
+            </div>
+          </label>
+
+          <input type="submit" value="ورود به حساب سرباز" id="submit-btn" />
+
+          <p class="agreement">
+            با ساخت حساب درواقع با
+            <a href="#">شرایط استفاده و سیاست حفظ حریم خصوصی</a> موافقت می
+            کنید.
+          </p>
+
+          <div id="login-options">
+            <p class="help-login">
+              در ورود مشکل دارید؟ <a href="#">راهنما را بخوانید</a>
+            </p>
+            <p class="forget-password">
+              <a href="#">رمز را فراموش کرده ام.</a>
+            </p>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="../js/signin.js"></script>
+  </body>
+</html>

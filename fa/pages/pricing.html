@@ -1,47 +1,357 @@
-<!DOCTYPE html>
-<html lang="fa">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/favicon.png" type="image">
-    <link rel="stylesheet" href="../css/pricing.css">
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta
+      name="description"
+      content="تعرفه‌های اشتراک سرباز بازی مرکب؛ اشتراک هفتگی، ۱۵ روزه و ماهانه با امکانات ویژه، اولویت بازی و تورنومنت‌های اختصاصی."
+    />
+    <link rel="icon" href="../../favicon.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="../css/pricing.css" />
     <title>تعرفه اشتراک - سرباز بازی مرکب</title>
-</head>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="صفحه اصلی سرباز">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="لوگوی رسمی سرباز بازی مرکب"
+          />
+        </a>
+      </div>
 
-<body dir="rtl">
-    <header>
-        <nav>
-            <a href="../index.html">
-                <img src="../assets/images/logo/" alt="لوگو">
-                <span>سرباز بازی مرکب</span>
-            </a>
-
-            <button class="hambergerMenu-btn" aria-label="open" aria-expanded="false" aria-controls="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </nav>
-
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="">خانه</a>
-            <a href="">امکانات</a>
-            <a href="">درباره ما</a>
-        </div>
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+        id="menu-toggle-btn"
+      >
+        <svg
+          class="icon-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        <svg
+          class="icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
     </header>
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
 
-    <nav></nav>
+    <nav class="nav-drawer" id="nav-drawer" aria-label="منوی اصلی">
+      <div class="nav-drawer-header">
+        <img
+          src="../../shared/images/logo/logo-long.png"
+          alt="لوگوی سرباز"
+          class="nav-drawer-logo"
+        />
+      </div>
 
-    <article>
-        <section></section>
-        <section></section>
-    </article>
+      <ul class="nav-links">
+        <li><a href="../index.html">صفحه اصلی</a></li>
+        <li><a href="pricing.html">تعرفه اشتراک</a></li>
+        <li><a href="events.html">ایونت‌ها</a></li>
+        <li><a href="winners.html">برندگان</a></li>
+        <li><a href="user.html">حساب کاربری</a></li>
+      </ul>
 
-    <footer></footer>
+      <div class="nav-drawer-footer">
+        <a href="signin.html" class="nav-signin-btn">ورود / ثبت‌نام</a>
+      </div>
+    </nav>
+    <main>
+      <!-- =========================
+           Intro / Hero
+      ========================== -->
+      <section class="pricing-hero reveal">
+        <span class="hero-eyebrow">اشتراک سرباز</span>
+        <h1>یک قدم تا داشتن یک بازی مرکب واقعی</h1>
+        <p>
+          هر روز کاربران بسیاری با سرباز تعامل دارد اما استفاده واقعی از آن
+          کسانی است که طعم ترس و هیجان دا دوست دارند. اشتراک سرباز مانند دروازه
+          ای است که با داشتن اش میتوانید بازی مرکب را به گروه خود ببرید. با
+          اشتراک سرباز دیدگاه متفاوتی از بازی مرکب خواهید داشت.
+        </p>
+      </section>
+
+      <!-- =========================
+           Power Stats
+      ========================== -->
+      <section class="card power-stats-card reveal">
+        <h2>سرباز در یک نگاه</h2>
+        <div class="power-stats reveal-stagger">
+          <div class="stat-card reveal">
+            <span class="stat-number" data-target="50">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">کاربر ماهانه</span>
+          </div>
+
+          <div class="stat-card reveal">
+            <span class="stat-number" data-target="0">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">بازی اجراشده</span>
+          </div>
+
+          <div class="stat-card reveal">
+            <span class="stat-number" data-target="0">0</span>
+            <span class="stat-plus">+</span>
+            <span class="stat-label">گروه فعال</span>
+          </div>
+
+          <div class="stat-card reveal">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">پشتیبانی و آنلاین بودن</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           Why Subscribe
+      ========================== -->
+      <section class="card why-card reveal">
+        <h2>چرا مشترک سرباز شویم؟</h2>
+
+        <div class="why-grid reveal-stagger">
+          <article class="why-item reveal">
+            <div class="why-icon">⚡</div>
+            <h3>برگزاری بینهایت بازی</h3>
+            <p>
+              با اشتراک سرباز شما محدودیتی از نظر تعداد برگزاری بازی در گروه را
+              ندارید.
+            </p>
+          </article>
+
+          <article class="why-item reveal">
+            <div class="why-icon">🏅</div>
+            <h3>شرکت در تورنومنت</h3>
+            <p>
+              یکی از شرایط ورود به تورنومنت داشتن اشتراک است که با آن میتوانید
+              در تورنومنت ها شرکت کنید.
+            </p>
+          </article>
+
+          <article class="why-item reveal">
+            <div class="why-icon">🏆</div>
+            <h3>گفتگوی بیشتر با چت بات</h3>
+            <p>
+              مشترکین میتوانند صحبت برای بیشتری با چت بات سرباز داشته باشند.
+            </p>
+          </article>
+
+          <article class="why-item reveal">
+            <div class="why-icon">💬</div>
+            <h3>بازگشایی تمامی قفل ها و شخصی سازی</h3>
+            <p>
+              با اشتراک سرباز میتوانید برخی قفل ها از جمله ضد درگیری و واکنش با
+              گیف و سایر قابلیت های دیگر را شخصی سازی کنید.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================
+           Player Avatars
+      ========================== -->
+      <section class="card players-card reveal">
+        <h2>بازیکنانی که به سرباز پیوسته‌اند</h2>
+        <p class="players-sub">
+          جمعیتی رو به رشد از بازیکنانی که هر روز اشتراک می‌خرند و در
+          تورنومنت‌ها می‌درخشند.
+        </p>
+
+        <div class="avatar-stack">
+          <img
+            src="../../shared/images/profile-icon/067-profile-icon.jpeg"
+            alt="بازیکن"
+          />
+          <img
+            src="../../shared/images/profile-icon/333-profile-icon.png"
+            alt="بازیکن"
+          />
+          <img
+            src="../../shared/images/profile-icon/456-profile-icon.jpg"
+            alt="بازیکن"
+          />
+          <img
+            src="../../shared/images/profile-icon/frontman-profile-icon.png"
+            alt="بازیکن"
+          />
+          <img
+            src="../../shared/images/profile-icon/soldier-profile-icon.png"
+            alt="بازیکن"
+          />
+          <span class="avatar-more">+۴۵</span>
+        </div>
+      </section>
+
+      <!-- =========================
+           Pricing Cards
+      ========================== -->
+      <section class="plans-section">
+        <h2 class="reveal">پلن مناسب خودت رو انتخاب کن</h2>
+        <p class="plans-sub reveal">
+          همه پلن‌ها شامل امکانات پایه سرباز هستند، فقط مدت و امتیازات ویژه فرق
+          می‌کند.
+        </p>
+
+        <div class="plans-grid reveal-stagger">
+          <article class="plan-card reveal">
+            <h3>اشتراک هفتگی</h3>
+            <div class="plan-price">
+              <span class="price-number">49,000</span>
+              <span class="price-unit">تومان</span>
+            </div>
+            <span class="plan-per-day">حدود ۷,۰۰۰ تومان در روز</span>
+            <ul class="plan-features">
+              <li>دسترسی به همه بازی‌های سرباز</li>
+              <li>اولویت در صف بازی</li>
+              <li>نشان اختصاصی هفتگی</li>
+            </ul>
+            <a class="plan-buy-link" href="checkout.html?plan=weekly">
+              <button class="plan-buy-btn" type="button">خرید اشتراک</button>
+            </a>
+          </article>
+
+          <article class="plan-card plan-highlight reveal">
+            <span class="plan-badge">پرطرفدار</span>
+            <h3>اشتراک ۱۵ روزه</h3>
+            <div class="plan-price">
+              <span class="price-number">89,000</span>
+              <span class="price-unit">تومان</span>
+            </div>
+            <span class="plan-per-day">حدود ۵,۹۰۰ تومان در روز</span>
+            <ul class="plan-features">
+              <li>همه امکانات پلن هفتگی</li>
+              <li>شرکت در تورنومنت‌های ویژه</li>
+              <li>نشان اختصاصی ۱۵ روزه</li>
+              <li>پشتیبانی اولویت‌دار</li>
+            </ul>
+            <a class="plan-buy-link" href="checkout.html?plan=biweekly">
+              <button class="plan-buy-btn" type="button">خرید اشتراک</button>
+            </a>
+          </article>
+
+          <article class="plan-card reveal">
+            <h3>اشتراک ماهانه</h3>
+            <div class="plan-price">
+              <span class="price-number">149,000</span>
+              <span class="price-unit">تومان</span>
+            </div>
+            <span class="plan-per-day">حدود ۴,۹۰۰ تومان در روز</span>
+            <ul class="plan-features">
+              <li>همه امکانات پلن ۱۵ روزه</li>
+              <li>بیشترین صرفه‌جویی</li>
+              <li>نشان اختصاصی ماهانه</li>
+              <li>اولویت در قرعه‌کشی جوایز</li>
+            </ul>
+            <a class="plan-buy-link" href="checkout.html?plan=monthly">
+              <button class="plan-buy-btn" type="button">خرید اشتراک</button>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- =========================
+           Guarantee
+      ========================== -->
+      <section class="card guarantee-card reveal">
+        <div class="guarantee-icon">🛡️</div>
+        <div class="guarantee-text">
+          <h2>از نظر برداخت نگران نباشید</h2>
+          <p>
+            خرید اشتراک از طریق دو درگاه برداخت تومانی و رمز ارزی انجام می شود و
+            در صورت اختلال هزینه شما برگشت داده میشود.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+           FAQ
+      ========================== -->
+      <section class="card faq-card reveal">
+        <h2>سوالات متداول</h2>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>اشتراک بعد از خرید چقدر طول می‌کشد فعال شود؟</summary>
+            <p>
+              بلافاصله بعد از تایید پرداخت، اشتراک شما به‌صورت خودکار فعال
+              می‌شود.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              آیا می‌توانم اشتراک را بین دو پیام‌رسان (بله و تلگرام) استفاده
+              کنم؟
+            </summary>
+            <p>
+              خیر، هر اشتراک فقط برای پلتفرمی که هنگام خرید انتخاب کرده‌اید فعال
+              است.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>در صورت تمام شدن اشتراک چه اتفاقی می‌افتد؟</summary>
+            <p>
+              حساب کاربری شما به حالت عادی بازمی‌گردد و می‌توانید در هر زمان
+              دوباره تمدید کنید.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>آیا امکان تمدید خودکار اشتراک وجود دارد؟</summary>
+            <p>
+              در حال حاضر تمدید به‌صورت دستی انجام می‌شود و هفته‌ای پیش از پایان
+              اشتراک به شما یادآوری داده می‌شود.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>کلیه داده‌ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
+    </footer>
 
     <script src="../js/pricing.js"></script>
-</body>
-
+    <script src="../js/nav.js"></script>
+  </body>
 </html>

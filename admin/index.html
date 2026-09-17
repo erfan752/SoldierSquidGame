@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="../favicon.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <title>پنل مدیریت - سرباز بازی مرکب</title>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <img
+          src="../shared/images/logo/logo-long.png"
+          alt="لوگوی رسمی سرباز بازی مرکب"
+        />
+        <span class="admin-tag">پنل مدیریت</span>
+      </div>
+
+      <button class="menu-button" type="button" aria-label="باز کردن منو" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="32" height="32" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </header>
+
+    <main class="user-main">
+      <!-- =========================
+           Admin Identity
+      ========================== -->
+      <section class="account-card">
+        <div class="avatar-block">
+          <div class="avatar-diamond">
+            <img
+              id="avatar-img"
+              src="../shared/images/profile-icon/frontman-profile-icon.png"
+              alt="آواتار مدیر"
+              data-number="000001"
+            />
+          </div>
+          <span class="avatar-number" id="avatar-number">001</span>
+        </div>
+
+        <div class="account-info">
+          <div class="info-row">
+            <span class="info-label">شناسه:</span>
+            <span class="info-value" id="admin-id">SDL-000001</span>
+            <button class="btn-small" type="button" id="copy-id-btn">کپی</button>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">ایمیل:</span>
+            <span class="info-value" id="admin-email">admin@soldier.game</span>
+            <button class="btn-small" type="button" id="email-btn">تغییر ایمیل</button>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">رمز:</span>
+            <span class="info-value">••••••</span>
+            <button class="btn-small" type="button" id="password-btn">تغییر رمز</button>
+          </div>
+
+          <div class="info-row">
+            <span class="info-label">آواتار:</span>
+            <button class="btn-small" type="button" id="avatar-btn">تغییر آواتار</button>
+          </div>
+        </div>
+
+        <div class="subscription-status">
+          <span class="status-label">نقش:</span>
+          <span class="status-value active">مالک</span>
+        </div>
+      </section>
+
+      <!-- =========================
+           Grant Subscription
+      ========================== -->
+      <section class="table-section">
+        <div class="table-header">
+          <h2>اهدای اشتراک:</h2>
+        </div>
+
+        <form class="admin-form" id="grant-sub-form">
+          <div class="form-row">
+            <label for="grant-user-id">شناسه کاربر</label>
+            <input type="text" id="grant-user-id" placeholder="SDL-123456" required />
+          </div>
+
+          <div class="form-row">
+            <label for="grant-platform">پلتفرم</label>
+            <select id="grant-platform" required>
+              <option value="bale">بله</option>
+              <option value="telegram">تلگرام</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="grant-plan">نوع اشتراک</label>
+            <select id="grant-plan" required>
+              <option value="weekly">هفتگی (۷ روز)</option>
+              <option value="biweekly">۱۵ روزه</option>
+              <option value="monthly">ماهانه (۳۰ روز)</option>
+              <option value="custom">مدت دلخواه</option>
+            </select>
+          </div>
+
+          <div class="form-row" id="custom-days-row" hidden>
+            <label for="grant-custom-days">تعداد روز</label>
+            <input type="number" id="grant-custom-days" min="1" placeholder="مثلاً 10" />
+          </div>
+
+          <button class="btn-primary form-submit" type="submit">اهدای اشتراک</button>
+        </form>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>شناسه کاربر</th>
+                <th>پلتفرم</th>
+                <th>نوع اشتراک</th>
+                <th>تاریخ اهدا</th>
+                <th>ادمین اهداکننده</th>
+              </tr>
+            </thead>
+            <tbody id="grants-body">
+              <tr>
+                <td colspan="5" class="empty-row">هنوز اشتراکی اهدا نشده است.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =========================
+           Write Article
+      ========================== -->
+      <section class="table-section">
+        <div class="table-header">
+          <h2>نوشتن مقاله جدید:</h2>
+        </div>
+
+        <form class="admin-form" id="article-form">
+          <div class="form-row">
+            <label for="article-title">عنوان مقاله</label>
+            <input type="text" id="article-title" placeholder="عنوان را وارد کنید" required />
+          </div>
+
+          <div class="form-row">
+            <label for="article-category">دسته‌بندی</label>
+            <select id="article-category">
+              <option value="news">اخبار</option>
+              <option value="guide">راهنما</option>
+              <option value="update">به‌روزرسانی</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="article-cover">تصویر کاور</label>
+            <input type="file" id="article-cover" accept="image/*" />
+          </div>
+
+          <div class="form-row form-row-full">
+            <label for="article-body">متن مقاله</label>
+            <textarea id="article-body" rows="6" placeholder="متن مقاله را بنویسید..." required></textarea>
+          </div>
+
+          <button class="btn-primary form-submit" type="submit">انتشار مقاله</button>
+        </form>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>عنوان</th>
+                <th>دسته‌بندی</th>
+                <th>تاریخ انتشار</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody id="articles-body">
+              <tr>
+                <td colspan="5" class="empty-row">هنوز مقاله‌ای منتشر نشده است.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =========================
+           Add Tournament
+      ========================== -->
+      <section class="table-section">
+        <div class="table-header">
+          <h2>افزودن تورنومنت جدید:</h2>
+        </div>
+
+        <form class="admin-form" id="tournament-form">
+          <div class="form-row">
+            <label for="tournament-name">نام تورنومنت</label>
+            <input type="text" id="tournament-name" placeholder="مثلاً تورنومنت شهریور ماه" required />
+          </div>
+
+          <div class="form-row">
+            <label for="tournament-platform">پلتفرم</label>
+            <select id="tournament-platform" required>
+              <option value="bale">بله</option>
+              <option value="telegram">تلگرام</option>
+              <option value="both">هر دو</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="tournament-date">تاریخ برگزاری</label>
+            <input type="date" id="tournament-date" required />
+          </div>
+
+          <div class="form-row">
+            <label for="tournament-prize">جایزه</label>
+            <input type="text" id="tournament-prize" placeholder="مثلاً 500,000 تومان" required />
+          </div>
+
+          <div class="form-row form-row-full">
+            <label for="tournament-desc">توضیحات</label>
+            <textarea id="tournament-desc" rows="4" placeholder="شرح تورنومنت..."></textarea>
+          </div>
+
+          <button class="btn-primary form-submit" type="submit">افزودن تورنومنت</button>
+        </form>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>نام</th>
+                <th>پلتفرم</th>
+                <th>تاریخ برگزاری</th>
+                <th>جایزه</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody id="tournaments-body">
+              <tr>
+                <td colspan="6" class="empty-row">هنوز تورنومنتی ثبت نشده است.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>کلیه داده‌ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
+    </footer>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>
