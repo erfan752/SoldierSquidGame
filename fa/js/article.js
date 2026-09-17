@@ -7,7 +7,7 @@ const relatedGrid = document.getElementById("related-grid");
 const params = new URLSearchParams(window.location.search);
 const articleId = params.get("id");
 
-const NOT_FOUND_PATH = "../../404.html";
+const NOT_FOUND_PATH = "../../404";
 
 // نمایش کارت لودینگ مشترک همین ابتدای کار
 SoldierLoading.show({ logo: "../../shared/images/logo/logo-long.png" });
@@ -50,7 +50,7 @@ function renderArticle(article, allArticles) {
     relatedGrid.innerHTML = related
       .map(
         (a) => `
-          <a href="article.html?id=${a.id}" class="related-card">
+          <a href="article?id=${a.id}" class="related-card">
             <div class="related-card-cover">
               <img src="${ARTICLE_COVER_BASE}${a.cover}" alt="${a.title}" loading="lazy" />
             </div>

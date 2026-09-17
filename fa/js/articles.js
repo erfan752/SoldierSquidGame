@@ -12,7 +12,7 @@ function createArticleCard(article) {
   card.className = "article-card";
 
   card.innerHTML = `
-    <a href="article.html?id=${article.id}" class="article-card-link">
+    <a href="article?id=${article.id}" class="article-card-link">
       <div class="article-card-cover">
         <img src="${ARTICLE_COVER_BASE}${article.cover}" alt="${article.title}" loading="lazy" />
       </div>

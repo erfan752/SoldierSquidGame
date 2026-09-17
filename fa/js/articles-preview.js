@@ -7,7 +7,7 @@ function createArticleCard(article) {
   card.className = "news-card reveal";
 
   card.innerHTML = `
-    <a href="pages/article.html?id=${article.id}" class="news-card-link">
+    <a href="pages/article?id=${article.id}" class="news-card-link">
       <div class="news-card-cover">
         <img src="${ARTICLE_COVER_BASE}${article.cover}" alt="${article.title}" loading="lazy" />
       </div>

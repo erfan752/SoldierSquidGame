@@ -11,7 +11,7 @@ function createEventCard(event) {
       <time datetime="${event.date}">تاریخ برگزاری: ${event.date}</time>
     </div>
 
-    <a href="pages/events.html">
+    <a href="pages/events">
       <button class="view-more-event" type="button">دیدن جزئیات</button>
     </a>
   `;
