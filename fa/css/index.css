@@ -275,7 +275,7 @@ a {
 }
 
 .nav-drawer-logo {
-  max-height: 42px;
+  width: 100%;
   display: block;
 }
 
@@ -1011,7 +1011,7 @@ a:focus-visible {
   }
 
   .header-logo img {
-    max-height: 42px;
+    width: 100%;
   }
 
   .hero-section {

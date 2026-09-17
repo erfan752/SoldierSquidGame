@@ -104,7 +104,7 @@ if (!sceneContainer) {
   const loader = new GLTFLoader();
 
   loader.setMeshoptDecoder(MeshoptDecoder);
-  const modelPath = "../../shared/models/soldier.glb";
+  const modelPath = "../shared/models/soldier.glb";
 
   console.log("Three.js: loading model:", modelPath);
 

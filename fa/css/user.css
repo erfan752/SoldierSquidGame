@@ -166,7 +166,7 @@ img {
 }
 
 .nav-drawer-logo {
-  max-height: 42px;
+  width: 100%;
   display: block;
 }
 
@@ -231,7 +231,7 @@ img {
 
 .user-main {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 70px auto;
   padding: 30px 20px 60px;
   display: flex;
   flex-direction: column;

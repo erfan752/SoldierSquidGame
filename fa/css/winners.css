@@ -179,7 +179,7 @@ a {
 }
 
 .nav-drawer-logo {
-  max-height: 42px;
+  width: 100%;
   display: block;
 }
 
