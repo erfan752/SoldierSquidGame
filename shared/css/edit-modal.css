@@ -1,0 +1,132 @@
+/* =========================
+   Edit Modal (shared component)
+========================= */
+
+.edit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.edit-modal-overlay.is-visible {
+  opacity: 1;
+}
+
+.edit-modal-overlay[hidden] {
+  display: none;
+}
+
+.edit-modal {
+  width: 100%;
+  max-width: 400px;
+  background-color: #0f0f0f;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  padding: 26px 24px;
+
+  transform: scale(0.92) translateY(10px);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.edit-modal-overlay.is-visible .edit-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.edit-modal-title {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.edit-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.edit-modal-field label {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.edit-modal-field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #000;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.edit-modal-field input:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.edit-modal-error {
+  color: #e35c5c;
+  font-size: 0.8rem;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  min-height: 1em;
+}
+
+.edit-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.edit-modal-btn {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.edit-modal-btn:active {
+  transform: scale(0.97);
+}
+
+.edit-modal-btn--cancel {
+  background-color: #1c1c1c;
+  color: #ccc;
+}
+
+.edit-modal-btn--cancel:hover {
+  background-color: #262626;
+}
+
+.edit-modal-btn--save {
+  background-color: var(--soldier-btn-pink, #e63d7e);
+  color: #fff;
+}
+
+.edit-modal-btn--save:hover {
+  background-color: var(--soldier-btn-pink-hover, #cc2f6b);
+}
+
+.edit-modal-message {
+  color: #999;
+  font-size: 0.88rem;
+  text-align: center;
+  margin: 4px 0 18px;
+  line-height: 1.8;
+}

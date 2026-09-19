@@ -230,7 +230,7 @@ img {
 
 .user-main {
   max-width: 1100px;
-  margin: 70px auto;
+  margin: 70px auto 0;
   padding: 30px 20px 60px;
   display: flex;
   flex-direction: column;
@@ -257,15 +257,17 @@ img {
   position: relative;
   flex-shrink: 0;
   width: 150px;
-  height: 190px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .avatar-diamond {
-  width: 130px;
-  height: 130px;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 2px;
+  background-color: var(--soldier-pink);
   overflow: hidden;
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
@@ -275,8 +277,23 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
+.avatar-number {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "digital-font", monospace;
+  font-size: 1.15rem;
+  color: var(--soldier-green);
+  border-radius: 999px;
+  padding: 3px 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px var(--soldier-green);
+}
 .avatar-number-wrap {
   position: absolute;
   bottom: 8px;
@@ -285,27 +302,6 @@ img {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-
-.avatar-number-wrap .avatar-number {
-  position: static;
-  transform: none;
-}
-.avatar-number {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-family: "digital-font", monospace;
-  font-size: 1.15rem;
-  color: var(--soldier-green);
-  border-radius: 999px;
-
-  padding: 3px 12px;
-
-  line-height: 1;
-  letter-spacing: 1px;
 }
 
 /* --- Info list --- */
@@ -372,9 +368,7 @@ img {
 
 .status-value {
   font-weight: 700;
-  font-size: 1.05rem;
-  padding: 4px 14px;
-  border-radius: 999px;
+  font-size: 1rem;
 }
 
 .status-value.active {
@@ -384,7 +378,8 @@ img {
 
 .status-value.inactive {
   color: #d94e4e;
-  border: 2px solid #d94e4e;
+  border-bottom: 2px solid #d94e4e;
+  padding: 5px;
 }
 
 /* =========================
@@ -499,6 +494,10 @@ img {
   margin-top: 6px;
 }
 
+.other-actions[hidden] {
+  display: none;
+}
+
 .btn-primary-outline {
   padding: 8px 18px;
   border-radius: 10px;
@@ -557,6 +556,7 @@ img {
 
   .avatar-block {
     align-self: center;
+    width: 100%;
   }
 
   .info-row {

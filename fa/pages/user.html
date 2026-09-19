@@ -7,6 +7,8 @@
     <link rel="icon" href="../../favicon.ico" type="icon" />
     <link rel="stylesheet" href="../css/user.css" />
     <link rel="stylesheet" href="../../shared/css/rank-badge.css" />
+    <link rel="stylesheet" href="../../shared/css/edit-modal.css" />
+    <link rel="stylesheet" href="../../shared/css/avatar-picker.css" />
     <title>حساب کاربری - سرباز بازی مرکب</title>
   </head>
   <body>
@@ -107,11 +109,20 @@
           </div>
           <span class="avatar-number-wrap">
             <span class="avatar-number" id="avatar-number">456</span>
-            <span id="avatar-rank-badge"></span>
           </span>
         </div>
 
         <div class="account-info">
+          <div class="info-row">
+            <span class="info-label">نام:</span>
+            <span class="info-value" id="user-name"
+              >Erf_vF
+              <span id="avatar-rank-badge"></span>
+            </span>
+            <button class="btn-small" type="button" id="name-btn" data-own-only>
+              ویرایش نام
+            </button>
+          </div>
           <div class="info-row">
             <span class="info-label">شناسه:</span>
             <span class="info-value" id="user-id">SDL-123456</span>
@@ -170,6 +181,31 @@
               دیدن پروفایل تلگرام
             </a>
           </div>
+          <div class="other-actions" data-own-only>
+            <button
+              class="btn-primary-outline"
+              type="button"
+              id="friends-list-btn"
+            >
+              لیست دوستان
+            </button>
+
+            <button
+              class="btn-primary-outline"
+              type="button"
+              id="bale-profile-btn"
+            >
+              افزودن / ویرایش پروفایل بله
+            </button>
+
+            <button
+              class="btn-primary-outline"
+              type="button"
+              id="telegram-profile-btn"
+            >
+              افزودن / ویرایش پروفایل تلگرام
+            </button>
+          </div>
         </div>
 
         <div class="subscription-status">
@@ -218,7 +254,7 @@
       ========================== -->
       <section class="table-section" data-own-only>
         <div class="table-header">
-          <h2>سابقه اشتراک‌ها:</h2>
+          <h2>سابقه تورنومنت‌ها:</h2>
         </div>
 
         <div class="table-wrapper">
@@ -253,6 +289,8 @@
       <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
     </footer>
     <script src="../../shared/js/rank.js"></script>
+    <script src="../../shared/js/edit-modal.js"></script>
+    <script src="../../shared/js/avatar-picker.js"></script>
     <script src="../js/user.js"></script>
     <script src="../js/nav.js"></script>
   </body>

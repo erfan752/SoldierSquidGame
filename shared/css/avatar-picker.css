@@ -1,0 +1,196 @@
+/* =========================
+   Avatar Picker (fullscreen gallery)
+========================= */
+
+.avatar-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  background-color: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.avatar-picker-overlay.is-visible {
+  opacity: 1;
+}
+
+.avatar-picker-overlay[hidden] {
+  display: none;
+}
+
+.avatar-picker-title {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* =========================
+   Honeycomb Diamond Grid
+========================= */
+
+.avatar-picker-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.avatar-picker-item {
+  width: 76px;
+  margin: -6px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-picker-item:nth-child(4n + 3),
+.avatar-picker-item:nth-child(4n) {
+  margin-top: 32px;
+}
+
+.avatar-picker-diamond-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.avatar-picker-diamond {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  background-color: var(--soldier-green, #53ab3d);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.avatar-picker-diamond img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.avatar-picker-item.is-dimmed .avatar-picker-diamond {
+  filter: brightness(0.25) grayscale(0.6);
+  transform: scale(0.88);
+}
+
+.avatar-picker-item.is-selected .avatar-picker-diamond {
+  filter: brightness(1.15);
+  transform: scale(1.18);
+  box-shadow: 0 0 18px rgba(83, 171, 61, 0.7);
+}
+
+.avatar-picker-number {
+  margin-top: 8px;
+  font-family: "digital-font", monospace;
+  font-size: 0.85rem;
+  color: var(--soldier-green, #53ab3d);
+  text-shadow: 0 0 6px var(--soldier-green, #53ab3d);
+  transition: opacity 0.3s ease;
+}
+
+.avatar-picker-item.is-dimmed .avatar-picker-number {
+  opacity: 0.3;
+}
+
+/* =========================
+   Prev / Next Controls
+========================= */
+
+.avatar-picker-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.avatar-picker-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #333;
+  background-color: #111;
+  color: #fff;
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.avatar-picker-nav-btn:hover {
+  background-color: #1c1c1c;
+}
+
+.avatar-picker-nav-btn:active {
+  transform: scale(0.92);
+}
+
+/* =========================
+   Confirm / Cancel Actions
+========================= */
+
+.avatar-picker-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.avatar-picker-btn {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.avatar-picker-btn:active {
+  transform: scale(0.97);
+}
+
+.avatar-picker-btn--cancel {
+  background-color: #1c1c1c;
+  color: #ccc;
+}
+
+.avatar-picker-btn--cancel:hover {
+  background-color: #262626;
+}
+
+.avatar-picker-btn--confirm {
+  background-color: var(--soldier-green, #53ab3d);
+  color: #000;
+}
+
+.avatar-picker-btn--confirm:hover {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 480px) {
+  .avatar-picker-item {
+    width: 62px;
+  }
+
+  .avatar-picker-diamond-wrap {
+    width: 52px;
+    height: 52px;
+  }
+}
