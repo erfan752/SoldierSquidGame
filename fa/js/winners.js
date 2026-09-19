@@ -4,7 +4,7 @@ const seasonsContainer = document.getElementById("seasons-container");
 const noWinnersEl = document.getElementById("no-winners");
 
 // ساخت یک بلوک کامل فصل (سکو + بقیه رتبه‌ها)
-function createSeasonBlock(season) {
+function createSeasonBlock(season, winStats) {
   const top3 = season.winners.filter((w) => w.rank <= 3);
   const rest = season.winners.filter((w) => w.rank > 3);
 
@@ -18,37 +18,66 @@ function createSeasonBlock(season) {
     </div>
 
     <div class="podium">
-      ${top3.map((w) => renderPodiumPlace(w)).join("")}
+      ${top3.map((w) => renderPodiumPlace(w, winStats)).join("")}
     </div>
 
-    ${rest.length ? `<div class="other-ranks">${rest.map((w) => renderRankRow(w)).join("")}</div>` : ""}
+    ${rest.length ? `<div class="other-ranks">${rest.map((w) => renderRankRow(w, winStats)).join("")}</div>` : ""}
   `;
 
   return block;
 }
 
-function renderPodiumPlace(winner) {
-  const crown = winner.rank === 1 ? `<span class="crown">👑</span>` : "";
+
+// استخراج عدد ابتدای اسم فایل آواتار (مثلاً از "456-profile-icon.jpg" عدد "456")
+function extractAvatarNumber(avatarFile) {
+  const match = avatarFile.match(/^(\d+)/);
+  return match ? match[1] : "";
+}
+
+
+function renderPodiumPlace(winner, winStats) {
+  const stat = winStats[winner.userId] || { count: 0, lastPlatform: null };
+  const badge = RankSystem.renderBadge(stat.count, stat.lastPlatform);
+  const avatarNumber = extractAvatarNumber(winner.avatar);
+
+  const rankMarker =
+    winner.rank === 1
+      ? `<span class="podium-top-rank">#1</span>`
+      : `<span class="podium-rank-number">#${winner.rank}</span>`;
 
   return `
     <div class="podium-place rank-${winner.rank}">
-      ${crown}
-      <span class="rank-badge">#${winner.rank}</span>
-      <div class="podium-avatar">
-        <img src="${AVATAR_BASE}${winner.avatar}" alt="${winner.username}" />
+      ${rankMarker}
+
+      <div class="podium-avatar-wrap">
+        <a href="user.html?id=${winner.userId}" class="podium-avatar">
+          <img src="${AVATAR_BASE}${winner.avatar}" alt="${winner.username}" />
+        </a>
+        ${avatarNumber ? `<span class="podium-avatar-number">${avatarNumber}</span>` : ""}
       </div>
-      <div class="podium-username">${winner.username}</div>
-      <div class="podium-prize">${winner.prize}</div>
+
+      <div class="podium-username">
+        <a href="user.html?id=${winner.userId}">${winner.username}</a> ${badge}
+      </div>
+
+      <div class="podium-user-id">${winner.userId}</div>
+
+      <div class="podium-prize">برنده بازی</div>
     </div>
   `;
 }
 
-function renderRankRow(winner) {
+function renderRankRow(winner, winStats) {
+  const stat = winStats[winner.userId] || { count: 0, lastPlatform: null };
+  const badge = RankSystem.renderBadge(stat.count, stat.lastPlatform);
+
   return `
     <div class="rank-row">
       <span class="rank-number">#${winner.rank}</span>
       <img src="${AVATAR_BASE}${winner.avatar}" alt="${winner.username}" />
-      <span class="rank-username">${winner.username}</span>
+      <span class="rank-username">
+        <a href="user.html?id=${winner.userId}">${winner.username}</a> ${badge}
+      </span>
       <span class="rank-prize">${winner.prize}</span>
     </div>
   `;
@@ -63,8 +92,10 @@ fetch("../data/winners.json")
       return;
     }
 
+    const winStats = RankSystem.computeWinStats(seasons);
+
     seasons.forEach((season) => {
-      seasonsContainer.appendChild(createSeasonBlock(season));
+      seasonsContainer.appendChild(createSeasonBlock(season, winStats));
     });
 
     // فعال کردن انیمیشن reveal بعد از اضافه شدن به DOM

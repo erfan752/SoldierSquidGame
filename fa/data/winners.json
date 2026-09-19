@@ -3,63 +3,79 @@
     "seasonId": "season-1",
     "seasonTitle": "فصل اول - شهریور ۱۴۰۵",
     "eventName": "تورنومنت شهریور ماه",
+    "platform": "bale",
     "endDate": "1405-07-01",
     "winners": [
       {
         "rank": 1,
+        "userId": "SDL-123456",
         "username": "player_omid",
         "avatar": "456-profile-icon.jpg",
         "prize": "500,000 تومان"
-      },
-      {
-        "rank": 2,
-        "username": "shadow_king",
-        "avatar": "333-profile-icon.png",
-        "prize": "250,000 تومان"
-      },
-      {
-        "rank": 3,
-        "username": "reza_007",
-        "avatar": "067-profile-icon.jpeg",
-        "prize": "100,000 تومان"
       }
     ]
   },
   {
     "seasonId": "season-2",
-    "seasonTitle": "فینال تابستان - شهریور ۱۴۰۵",
-    "eventName": "فینال نهایی تابستان",
-    "endDate": "1405-06-31",
+    "seasonTitle": "فصل دوم - مهر ۱۴۰۵",
+    "eventName": "تورنومنت مهر ماه",
+    "platform": "bale",
+    "endDate": "1405-08-01",
     "winners": [
       {
         "rank": 1,
-        "username": "frontman_fan",
-        "avatar": "frontman-profile-icon.png",
-        "prize": "1,000,000 تومان"
-      },
-      {
-        "rank": 2,
-        "username": "soldier_boy",
-        "avatar": "soldier-profile-icon.png",
-        "prize": "500,000 تومان"
-      },
-      {
-        "rank": 3,
+        "userId": "SDL-123456",
         "username": "player_omid",
         "avatar": "456-profile-icon.jpg",
-        "prize": "250,000 تومان"
-      },
+        "prize": "600,000 تومان"
+      }
+    ]
+  },
+  {
+    "seasonId": "season-2",
+    "seasonTitle": "فصل دوم - مهر ۱۴۰۵",
+    "eventName": "تورنومنت مهر ماه",
+    "platform": "bale",
+    "endDate": "1405-08-01",
+    "winners": [
       {
-        "rank": 4,
-        "username": "reza_007",
-        "avatar": "067-profile-icon.jpeg",
-        "prize": "100,000 تومان"
-      },
+        "rank": 1,
+        "userId": "SDL-123456",
+        "username": "player_omid",
+        "avatar": "456-profile-icon.jpg",
+        "prize": "600,000 تومان"
+      }
+    ]
+  },
+  {
+    "seasonId": "season-2",
+    "seasonTitle": "فصل دوم - مهر ۱۴۰۵",
+    "eventName": "تورنومنت مهر ماه",
+    "platform": "bale",
+    "endDate": "1405-08-01",
+    "winners": [
       {
-        "rank": 5,
-        "username": "shadow_king",
-        "avatar": "333-profile-icon.png",
-        "prize": "50,000 تومان"
+        "rank": 1,
+        "userId": "SDL-123456",
+        "username": "player_omid",
+        "avatar": "456-profile-icon.jpg",
+        "prize": "600,000 تومان"
+      }
+    ]
+  },
+  {
+    "seasonId": "season-2",
+    "seasonTitle": "فصل دوم - مهر ۱۴۰۵",
+    "eventName": "تورنومنت مهر ماه",
+    "platform": "bale",
+    "endDate": "1405-08-01",
+    "winners": [
+      {
+        "rank": 1,
+        "userId": "SDL-123456",
+        "username": "player_omid",
+        "avatar": "456-profile-icon.jpg",
+        "prize": "600,000 تومان"
       }
     ]
   }

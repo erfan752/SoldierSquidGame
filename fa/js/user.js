@@ -77,3 +77,22 @@ if (addFriendBtn) {
     addFriendBtn.disabled = true;
   });
 }
+
+// =========================================================
+// نمایش بادج رتبه کنار شماره آواتار
+// =========================================================
+fetch("../data/winners.json")
+  .then((res) => res.json())
+  .then((seasons) => {
+    const winStats = RankSystem.computeWinStats(seasons);
+    const stat = winStats[viewedUserId] || { count: 0, lastPlatform: null };
+    const badge = RankSystem.renderBadge(stat.count, stat.lastPlatform);
+
+    const badgeContainer = document.getElementById("avatar-rank-badge");
+    if (badgeContainer) {
+      badgeContainer.innerHTML = badge;
+    }
+  })
+  .catch((err) => {
+    console.error("خطا در دریافت اطلاعات رتبه:", err);
+  });

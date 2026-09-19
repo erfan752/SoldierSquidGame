@@ -79,7 +79,6 @@ img {
   object-fit: contain;
 }
 
-
 /* =========================
    Menu Button (Icon Toggle)
 ========================= */
@@ -186,7 +185,9 @@ img {
   border-radius: 10px;
   color: var(--soldier-white);
   font-size: 0.95rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -222,8 +223,6 @@ img {
 .menu-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-
-
 
 /* =========================
    Main
@@ -278,6 +277,20 @@ img {
   display: block;
 }
 
+.avatar-number-wrap {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.avatar-number-wrap .avatar-number {
+  position: static;
+  transform: none;
+}
 .avatar-number {
   position: absolute;
   bottom: 30px;
