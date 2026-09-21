@@ -1,0 +1,29 @@
+[
+  {
+    "id": "article-1",
+    "title": "Introducing the New Soldier Update",
+    "excerpt": "New features have been added to Soldier, making the game experience more exciting than ever.",
+    "cover": "cover1.jpg",
+    "category": "Update",
+    "date": "2026-09-06",
+    "author": "Soldier Team",
+    "content": [
+      "The first paragraph of the article goes here and can be as long as needed.",
+      "The second paragraph is used to separate different sections of the text.",
+      "The third paragraph and the rest of the article continue here..."
+    ]
+  },
+  {
+    "id": "article-2",
+    "title": "How to Win in Tournaments",
+    "excerpt": "A few practical tips to increase your chances of winning Soldier tournaments.",
+    "cover": "cover2.jpg",
+    "category": "Guide",
+    "date": "2026-09-01",
+    "author": "Soldier Team",
+    "content": [
+      "The first paragraph of the article goes here.",
+      "The second paragraph continues the guide."
+    ]
+  }
+]

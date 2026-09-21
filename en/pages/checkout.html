@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="../../favicon.ico" type="icon" />
+    <link rel="stylesheet" href="../css/checkout.css" />
+    <title>Complete Order - Soldier Squid Game</title>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="Soldier home page">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="Soldier Squid Game official logo"
+          />
+        </a>
+      </div>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+      </button>
+    </header>
+
+    <main class="checkout-main">
+      <div class="checkout-wrapper">
+        <!-- =========================
+             Order Summary
+        ========================== -->
+        <aside class="order-summary">
+          <h2>Order Summary</h2>
+
+          <div class="summary-plan">
+            <span class="summary-plan-name" id="summary-plan-name">—</span>
+            <span class="summary-plan-badge" id="summary-plan-badge" hidden
+              >Popular</span
+            >
+          </div>
+
+          <ul class="summary-features" id="summary-features"></ul>
+
+          <div class="summary-divider"></div>
+
+          <div class="summary-row">
+            <span>Base Price</span>
+            <span id="summary-price">0 IRR</span>
+          </div>
+
+          <div class="summary-row discount-row" id="discount-row" hidden>
+            <span>Gift Code Discount</span>
+            <span id="summary-discount">-0 IRR</span>
+          </div>
+
+          <div class="summary-row summary-total">
+            <span>Total Payable</span>
+            <span id="summary-total">0 IRR</span>
+          </div>
+        </aside>
+
+        <!-- =========================
+             Order Form
+        ========================== -->
+        <section class="order-form-card">
+          <h1>Complete Order Details</h1>
+          <p class="form-sub">
+            Enter the details below accurately so your subscription
+            activates immediately after payment.
+          </p>
+
+          <form id="checkout-form">
+            <div class="form-row">
+              <label for="checkout-user-id">Soldier User ID</label>
+              <input
+                type="text"
+                id="checkout-user-id"
+                placeholder="SDL-123456"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="checkout-platform">Platform</label>
+              <select id="checkout-platform" required>
+                <option value="bale">Bale</option>
+                <option value="telegram">Telegram</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="checkout-group-id">
+                Group Numeric ID
+                <span class="field-hint"
+                  >(Note: if the numeric group ID is entered incorrectly,
+                  responsibility lies with the person placing the order.)</span
+                >
+              </label>
+              <input
+                type="text"
+                inputmode="numeric"
+                id="checkout-group-id"
+                placeholder="e.g. 123456789"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="checkout-group-username"
+                >Group Username (optional)
+                <nav>
+                  (If the numeric ID is entered incorrectly, the
+                  subscription will be applied based on the group username
+                  instead.)
+                </nav>
+              </label>
+              <input
+                type="text"
+                id="checkout-group-username"
+                placeholder="e.g. squidgame_group"
+              />
+            </div>
+
+            <div class="form-row gift-code-row">
+              <label for="checkout-gift-code">Gift Code (optional)</label>
+
+              <div class="gift-code-input-group">
+                <input
+                  type="text"
+                  id="checkout-gift-code"
+                  placeholder="e.g. SOLDIER10"
+                />
+                <button
+                  class="gift-code-apply-btn"
+                  type="button"
+                  id="apply-gift-code-btn"
+                >
+                  Apply Code
+                </button>
+              </div>
+
+              <span class="gift-code-message" id="gift-code-message"></span>
+            </div>
+
+            <div class="form-row">
+              <span class="form-row-label">Payment Method</span>
+
+              <div class="payment-methods">
+                <label class="payment-option">
+                  <input
+                    type="radio"
+                    name="payment-method"
+                    value="card"
+                    checked
+                  />
+                  <span>Rial Payment (ZarinPal)</span>
+                </label>
+
+                <label class="payment-option">
+                  <input type="radio" name="payment-method" value="gateway" />
+                  <span>Crypto Payment</span>
+                </label>
+              </div>
+            </div>
+
+            <label class="form-agreement">
+              <input type="checkbox" id="checkout-agree" required />
+              <span
+                >I have read and agree to the
+                <a href="#">terms of use and privacy policy</a> for using
+                the subscription.</span
+              >
+            </label>
+
+            <button class="checkout-submit-btn" type="submit">
+              Proceed to Payment Gateway
+            </button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- =========================
+         Success Modal
+    ========================== -->
+    <div class="success-overlay" id="success-overlay" hidden>
+      <div class="success-modal">
+        <div class="success-icon">✓</div>
+        <h2>Order Placed Successfully</h2>
+        <p>Your subscription will activate automatically once payment is confirmed.</p>
+        <a href="user.html" class="success-btn">View Profile</a>
+      </div>
+    </div>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>All data belongs to the Soldier Squid Game project. &copy; 2026</nav>
+      <nav>Full project design by Mr. Erf.</nav>
+    </footer>
+
+    <script src="../js/checkout.js"></script>
+  </body>
+</html>

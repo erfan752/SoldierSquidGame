@@ -1,0 +1,20 @@
+[
+  {
+    "id": "evt-001",
+    "title": "September Tournament",
+    "platform": "both",
+    "description": "Each month, the best-performing player from every group is invited to the tournament group and competes for a big prize.",
+    "prize": "500,000 IRR",
+    "date": "2026-09-23",
+    "status": "upcoming"
+  },
+  {
+    "id": "evt-002",
+    "title": "Summer Grand Final",
+    "platform": "telegram",
+    "description": "Every three months, the top 3 players from each group are invited, and the biggest prize is awarded to the three winners.",
+    "prize": "1,500,000 IRR",
+    "date": "2026-09-22",
+    "status": "ended"
+  }
+]

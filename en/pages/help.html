@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta
+      name="description"
+      content="Complete guide and documentation for Soldier Squid Game — commands, game rules, platform differences, and FAQ."
+    />
+    <link rel="icon" href="../../favicon.ico" type="icon" />
+    <link rel="stylesheet" href="../css/help.css" />
+    <title>Guide & Documentation - Soldier Squid Game</title>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="Soldier home page">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="Soldier Squid Game official logo"
+          />
+        </a>
+      </div>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        id="menu-toggle-btn"
+      >
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="32" height="32" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="28" height="28" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-drawer" id="nav-drawer" aria-label="Main menu">
+      <div class="nav-drawer-header">
+        <img src="../../shared/images/logo/logo-long.png" alt="Soldier logo" class="nav-drawer-logo" />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="pricing.html">Subscription Plans</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="winners.html">Winners</a></li>
+        <li><a href="user.html">Account</a></li>
+        <li><a href="help.html">Guide & Documentation</a></li>
+      </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="signin.html" class="nav-signin-btn">Sign in / Register</a>
+      </div>
+    </nav>
+
+    <!-- =========================
+         Intro
+    ========================== -->
+    <section class="help-hero">
+      <h1>Complete Documentation for Soldier Squid Game Bot</h1>
+      <p>All guides and answers to your questions in one place</p>
+    </section>
+
+    <!-- =========================
+         Layout: TOC + Content
+    ========================== -->
+    <div class="help-layout">
+      <!-- Table of Contents -->
+      <aside class="help-toc" id="help-toc">
+        <nav class="help-toc-nav" aria-label="Guide contents">
+          <a href="#getting-started" class="toc-link is-active" data-section="getting-started">Getting Started</a>
+          <a href="#command-games" class="toc-link" data-section="command-games">Game Commands</a>
+          <a href="#command-frontman" class="toc-link" data-section="command-frontman">Frontman Commands</a>
+          <a href="#command-costiming" class="toc-link" data-section="command-costiming">Locks & Customization</a>
+          <a href="#command-chatbot" class="toc-link" data-section="command-chatbot">Using the Chatbot</a>
+          <a href="#game-rules" class="toc-link" data-section="game-rules">Important Notes</a>
+          <a href="#platforms" class="toc-link" data-section="platforms">Bale vs Telegram</a>
+          <a href="#subscription" class="toc-link" data-section="subscription">Subscription & Premium Features</a>
+          <a href="#faq" class="toc-link" data-section="faq">FAQ</a>
+          <a href="#support" class="toc-link" data-section="support">Support</a>
+        </nav>
+      </aside>
+
+      <!-- Content -->
+      <main class="help-content">
+        <!-- Getting Started -->
+        <section id="getting-started" class="help-section">
+          <h2>Getting Started</h2>
+          <p>
+            To get started, add the bot to your group; it will send a
+            confirmation message once it has successfully joined.
+          </p>
+          <p>
+            Next, make the bot an admin — once it detects admin rights, it
+            will send an installation confirmation message. (It's
+            recommended to grant all required permissions so you don't run
+            into issues later.)
+          </p>
+          <p>
+            After installation, the bot treats the current group owner as
+            the Frontman (leader).
+          </p>
+        </section>
+
+        <!-- Game Commands -->
+        <section id="command-games" class="help-section">
+          <h2>Game Commands</h2>
+
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>شروع بازی</code></td>
+                  <td>
+                    Announces a new game and opens player registration,
+                    waiting for the next command from the Frontman or a VIP
+                    guest
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>شروع بازی کشتار</code></td>
+                  <td>
+                    Same as "Start Game", except rounds repeat until only
+                    one player remains alive.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>بعدی</code></td>
+                  <td>Move to the next game / stage</td>
+                </tr>
+                <tr>
+                  <td><code>اتمام بازی</code></td>
+                  <td>Ends the current game under any circumstances</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Frontman Commands -->
+        <section id="command-frontman" class="help-section">
+          <h2>Frontman Commands</h2>
+
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>#لیست بازیکنان</code></td>
+                  <td>Shows the list of all players in the game</td>
+                </tr>
+                <tr>
+                  <td><code>#لیست بازیکنان زنده</code></td>
+                  <td>Shows the list of players still alive</td>
+                </tr>
+                <tr>
+                  <td><code>افزودن مهمان + (reply)</code></td>
+                  <td>Adds that player to the VIP guest list</td>
+                </tr>
+                <tr>
+                  <td><code>حذف مهمان + (reply)</code></td>
+                  <td>Removes that guest from the VIP list</td>
+                </tr>
+                <tr>
+                  <td><code>انتقال رئیس / انتقال ریاست / انتقال رییس + (reply)</code></td>
+                  <td>Fully transfers Frontman status to the replied-to person</td>
+                </tr>
+                <tr>
+                  <td><code>محروم از شرکت + (reply)</code></td>
+                  <td>Blocks that player from joining during registration</td>
+                </tr>
+                <tr>
+                  <td><code>مجاز به شرکت + (reply)</code></td>
+                  <td>Removes the participation restriction from that player</td>
+                </tr>
+                <tr>
+                  <td><code>کشتن + (reply)</code></td>
+                  <td>Manually eliminates that player from the game</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Locks & Customization -->
+        <section id="command-costiming" class="help-section">
+          <h2>Locks & Customization</h2>
+          <p>
+            Soldier comes with locks and customization features so groups
+            can create a truly authentic Squid Game experience.
+          </p>
+
+          <h3>Locks:</h3>
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>ضد درگیری فعال</code></td>
+                  <td>Detects abusive messages and deletes them</td>
+                </tr>
+                <tr>
+                  <td><code>ضد درگیری غیرفعال</code></td>
+                  <td>Turns off detection and deletion of abusive messages</td>
+                </tr>
+                <tr>
+                  <td><code>واکنش با گیف فعال</code></td>
+                  <td>Turns on GIF reactions from Soldier in the group</td>
+                </tr>
+                <tr>
+                  <td><code>واکنش با گیف غیرفعال</code></td>
+                  <td>Turns off GIF reactions from Soldier in the group</td>
+                </tr>
+                <tr>
+                  <td><code>نظرسنجی فعال</code></td>
+                  <td>Enables polls between games</td>
+                </tr>
+                <tr>
+                  <td><code>نظرسنجی غیرفعال</code></td>
+                  <td>Disables polls between games</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Customization:</h3>
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>تنظیم پیام شرکت کردن + (your message text)</code></td>
+                  <td>
+                    Set a custom message shown when a player joins the
+                    game. Available placeholders: (number) (name). Example:
+                    Player number (number), named (name), has joined the
+                    game
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>حذف شرکت کردن</code></td>
+                  <td>Removes the custom join message and restores the default</td>
+                </tr>
+                <tr>
+                  <td><code>تنظیم پیام کشته شدن + (your message text)</code></td>
+                  <td>Customizes the message shown when a player is eliminated</td>
+                </tr>
+                <tr>
+                  <td><code>حذف پیام کشته شدن</code></td>
+                  <td>Removes the custom elimination message and restores the default</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Using the Chatbot -->
+        <section id="command-chatbot" class="help-section">
+          <h2>Using the Chatbot</h2>
+          <p>Soldier comes with its own built-in chatbot you can talk to.</p>
+          <p>
+            To chat, start your message with the word <code>سرباز</code>
+            followed by your message.
+          </p>
+          <p>Example: <code>سرباز سلام خوبی؟؟</code></p>
+          <p>
+            Note: without a subscription, each user can send one message;
+            with a subscription, you can send up to 5 messages to Soldier.
+          </p>
+        </section>
+
+        <!-- Important Notes -->
+        <section id="game-rules" class="help-section">
+          <h2>Important Notes</h2>
+          <p>Soldier automatically behaves as follows during a game:</p>
+          <ul class="help-list">
+            <li>
+              If the bot has permission to manage member restrictions in
+              the group, it mutes eliminated players.
+            </li>
+            <li>
+              Each player is assigned a unique number during registration;
+              once taken, no other player can use that number.
+            </li>
+            <li>
+              Eliminated players are unmuted automatically once the game
+              ends.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Bale vs Telegram -->
+        <section id="platforms" class="help-section">
+          <h2>Bale vs Telegram</h2>
+          <p>
+            Soldier Squid Game is officially available on both Telegram and
+            Bale. Guides and commands are identical on both; the
+            difference lies in emoji style, speed, and appearance.
+          </p>
+        </section>
+
+        <!-- Subscription -->
+        <section id="subscription" class="help-section">
+          <h2>Subscription & Premium Features</h2>
+          <p>
+            With a subscription, you can remove all of Soldier's
+            limitations and access its core features. Visit the
+            <a href="pricing.html">Subscription Plans</a> page to purchase
+            one.
+          </p>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="help-section">
+          <h2>FAQ</h2>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>How do I add the bot to my group?</summary>
+              <p>
+                In your group settings, under "Add Member", search for and
+                add soldiersquidgame_bot, then make it an admin.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Is using Soldier free?</summary>
+              <p>
+                Soldier gives new groups a free trial subscription; once it
+                expires, you can purchase a subscription to keep using
+                Soldier for more days.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>What should I do if I run into a problem?</summary>
+              <p>
+                You can raise your issue in the support group for your
+                platform.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section id="support" class="help-section">
+          <h2>Support</h2>
+          <p>
+            If you run into any issues or have questions about Soldier
+            Squid Game, join the support group for your platform and ask
+            your question there.
+          </p>
+
+          <div class="support-links">
+            <!-- TODO: replace with the actual Telegram support group link -->
+            <a href="#" class="support-btn telegram">Telegram Support</a>
+            <a href="https://ble.ir/join/GhjcQuBX44" class="support-btn bale">Bale Support</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>All data belongs to the Soldier Squid Game project. &copy; 2026</nav>
+      <nav>Full project design by Mr. Erf.</nav>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/help.js"></script>
+  </body>
+</html>

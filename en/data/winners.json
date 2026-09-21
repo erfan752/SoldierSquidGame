@@ -1,0 +1,32 @@
+[
+  {
+    "seasonId": "season-1",
+    "seasonTitle": "Season 1 - September 2026",
+    "eventName": "September Tournament",
+    "platform": "bale",
+    "endDate": "2026-09-22",
+    "winners": [
+      {
+        "rank": 1,
+        "userId": "SDL-100200",
+        "username": "player_omid",
+        "avatar": "456-profile-icon.jpg",
+        "prize": "500,000 IRR"
+      },
+      {
+        "rank": 2,
+        "userId": "SDL-100201",
+        "username": "shadow_king",
+        "avatar": "333-profile-icon.png",
+        "prize": "250,000 IRR"
+      },
+      {
+        "rank": 3,
+        "userId": "SDL-100202",
+        "username": "reza_007",
+        "avatar": "067-profile-icon.jpeg",
+        "prize": "100,000 IRR"
+      }
+    ]
+  }
+]
