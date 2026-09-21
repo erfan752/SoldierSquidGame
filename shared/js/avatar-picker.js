@@ -28,7 +28,7 @@ const AvatarPicker = {
 
       <div class="avatar-picker-nav">
         <button type="button" class="avatar-picker-nav-btn" id="avatar-picker-prev">‹</button>
-        <span style="color:#777; font-size:0.85rem;">جابه‌جایی بین آواتارها</span>
+        <span style="color:#777; font-size:0.85rem;">یکی از آواتار های موجود را انتخاب کنید</span>
         <button type="button" class="avatar-picker-nav-btn" id="avatar-picker-next">›</button>
       </div>
 
@@ -47,13 +47,21 @@ const AvatarPicker = {
     document.body.appendChild(overlay);
     this._overlay = overlay;
 
-    document.getElementById("avatar-picker-prev").addEventListener("click", () => this._move(-1));
-    document.getElementById("avatar-picker-next").addEventListener("click", () => this._move(1));
-    document.getElementById("avatar-picker-cancel").addEventListener("click", () => this.close());
-    document.getElementById("avatar-picker-confirm").addEventListener("click", () => this._confirm());
+    document
+      .getElementById("avatar-picker-prev")
+      .addEventListener("click", () => this._move(-1));
+    document
+      .getElementById("avatar-picker-next")
+      .addEventListener("click", () => this._move(1));
+    document
+      .getElementById("avatar-picker-cancel")
+      .addEventListener("click", () => this.close());
+    document
+      .getElementById("avatar-picker-confirm")
+      .addEventListener("click", () => this._confirm());
   },
 
-  open({ avatars, currentFile, basePath, onConfirm }) {
+  open({avatars, currentFile, basePath, onConfirm}) {
     this._ensureBuilt();
 
     this._avatars = avatars;
@@ -75,27 +83,41 @@ const AvatarPicker = {
 
   _renderGrid() {
     const grid = document.getElementById("avatar-picker-grid");
+    const perRow = 3; // تعداد لوزی در هر ردیف
 
-    grid.innerHTML = this._avatars
-      .map(
-        (avatar, index) => `
-          <div class="avatar-picker-item" data-index="${index}">
-            <div class="avatar-picker-diamond-wrap">
+    const rows = [];
+    for (let i = 0; i < this._avatars.length; i += perRow) {
+      rows.push(this._avatars.slice(i, i + perRow));
+    }
+
+    grid.innerHTML = rows
+      .map((rowAvatars, rowIndex) => {
+        const isOffset = rowIndex % 2 === 1;
+        const itemsHtml = rowAvatars
+          .map((avatar) => {
+            const globalIndex = this._avatars.indexOf(avatar);
+            return `
+            <div class="avatar-picker-item" data-index="${globalIndex}">
               <div class="avatar-picker-diamond">
                 <img src="${this._basePath}${avatar.file}" alt="${avatar.label}" />
               </div>
+              <span class="avatar-picker-number">${avatar.label}</span>
             </div>
-            <span class="avatar-picker-number">${avatar.label}</span>
-          </div>
-        `
-      )
+          `;
+          })
+          .join("");
+
+        return `<div class="avatar-picker-row${isOffset ? " is-offset" : ""}">${itemsHtml}</div>`;
+      })
       .join("");
 
     grid.querySelectorAll(".avatar-picker-item").forEach((item) => {
-      item.querySelector(".avatar-picker-diamond").addEventListener("click", () => {
-        this._selectedIndex = Number(item.dataset.index);
-        this._updateSelection();
-      });
+      item
+        .querySelector(".avatar-picker-diamond")
+        .addEventListener("click", () => {
+          this._selectedIndex = Number(item.dataset.index);
+          this._updateSelection();
+        });
     });
 
     this._updateSelection();

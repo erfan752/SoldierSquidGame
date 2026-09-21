@@ -285,7 +285,7 @@ const AVAILABLE_AVATARS = [
   { file: "067-profile-icon.jpeg", label: "067" },
   { file: "333-profile-icon.png", label: "333" },
   { file: "456-profile-icon.jpg", label: "456" },
-  { file: "frontman-profile-icon.png", label: "FM" },
+  { file: "frontman-profile-icon.png", label: "001" },
   { file: "soldier-profile-icon.png", label: "SLD" },
 ];
 

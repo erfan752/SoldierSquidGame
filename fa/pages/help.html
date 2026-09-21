@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000" />
+    <meta
+      name="description"
+      content="راهنما و مستندات کامل سرباز بازی مرکب؛ دستورات، قوانین بازی، تفاوت نسخه‌ها و سوالات متداول."
+    />
+    <link rel="icon" href="../../favicon.ico" type="icon" />
+    <link rel="stylesheet" href="../css/help.css" />
+    <title>راهنما و مستندات - سرباز بازی مرکب</title>
+  </head>
+  <body>
+    <!-- =========================
+         Header
+    ========================== -->
+    <header class="site-header">
+      <div class="header-item header-logo">
+        <a href="../index.html" aria-label="صفحه اصلی سرباز">
+          <img
+            src="../../shared/images/logo/logo-long.png"
+            alt="لوگوی رسمی سرباز بازی مرکب"
+          />
+        </a>
+      </div>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+        id="menu-toggle-btn"
+      >
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="32" height="32" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="28" height="28" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </header>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+    <nav class="nav-drawer" id="nav-drawer" aria-label="منوی اصلی">
+      <div class="nav-drawer-header">
+        <img src="../../shared/images/logo/logo-long.png" alt="لوگوی سرباز" class="nav-drawer-logo" />
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">صفحه اصلی</a></li>
+        <li><a href="pricing.html">تعرفه اشتراک</a></li>
+        <li><a href="events.html">ایونت‌ها</a></li>
+        <li><a href="winners.html">برندگان</a></li>
+        <li><a href="user.html">حساب کاربری</a></li>
+        <li><a href="help.html">راهنما و مستندات</a></li>
+      </ul>
+
+      <div class="nav-drawer-footer">
+        <a href="signin.html" class="nav-signin-btn">ورود / ثبت‌نام</a>
+      </div>
+    </nav>
+
+    <!-- =========================
+         Intro
+    ========================== -->
+    <section class="help-hero">
+      <h1>مستندات کامل ربات سرباز بازی مرکب</h1>
+      <p>تمامی راهنماها و پاسخ به سوالات شما در قالب یک مستندات</p>
+    </section>
+
+    <!-- =========================
+         Layout: TOC + Content
+    ========================== -->
+    <div class="help-layout">
+      <!-- Table of Contents -->
+      <aside class="help-toc" id="help-toc">
+        <nav class="help-toc-nav" aria-label="فهرست راهنما">
+          <a href="#getting-started" class="toc-link is-active" data-section="getting-started">نصب و شروع استفاده</a>
+          <a href="#command-games" class="toc-link" data-section="command-games">دستورات برگزاری بازی</a>
+          <a href="#command-frontman" class="toc-link" data-section="command-frontman">دستورات رئیس</a>
+          <a href="#command-costiming" class="toc-link" data-section="command-costiming">قفل‌ها و شخصی‌سازی</a>
+          <a href="#command-chatbot" class="toc-link" data-section="command-chatbot">استفاده از چت‌بات</a>
+          <a href="#game-rules" class="toc-link" data-section="game-rules">نکات مهم</a>
+          <a href="#platforms" class="toc-link" data-section="platforms">تفاوت نسخه بله و تلگرام</a>
+          <a href="#subscription" class="toc-link" data-section="subscription">اشتراک و امکانات ویژه</a>
+          <a href="#faq" class="toc-link" data-section="faq">سوالات متداول</a>
+          <a href="#support" class="toc-link" data-section="support">پشتیبانی</a>
+        </nav>
+      </aside>
+
+      <!-- Content -->
+      <main class="help-content">
+        <!-- نصب و شروع استفاده -->
+        <section id="getting-started" class="help-section">
+          <h2>نصب و شروع استفاده</h2>
+          <p>
+            برای شروع باید ربات را در گروه خود عضو کنید و ربات برای شما پیام عضو
+            شدن موفق را می‌فرستد.
+          </p>
+          <p>
+            سپس باید ربات را مدیر کنید و بعد از مدیر کردن ربات پیام نصب شدن را
+            خواهد فرستاد. (ترجیحاً تمامی دسترسی‌های لازم را به ربات بدهید تا در
+            استفاده به مشکل نخورید)
+          </p>
+          <p>
+            ربات بعد از نصب شدن مالک گروه فعلی را به عنوان رئیس (فرانت‌من) در
+            نظر می‌گیرد.
+          </p>
+        </section>
+
+        <!-- دستورات برگزاری بازی -->
+        <section id="command-games" class="help-section">
+          <h2>دستورات برگزاری بازی</h2>
+
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>دستور</th>
+                  <th>توضیح</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>شروع بازی</code></td>
+                  <td>
+                    اعلام بازی جدید و شروع ثبت‌نام بازیکنان و منتظر دستور بعدی
+                    از رئیس یا مهمان VIP
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>شروع بازی کشتار</code></td>
+                  <td>
+                    مانند «شروع بازی» با این تفاوت که بازی‌ها به‌قدری تکرار
+                    می‌شوند تا فقط یک بازیکن زنده بماند.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>بعدی</code></td>
+                  <td>رفتن به بازی بعدی با مرحله بعد</td>
+                </tr>
+                <tr>
+                  <td><code>اتمام بازی</code></td>
+                  <td>خاتمه دادن به بازی موجود در هر شرایطی</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- دستورات رئیس -->
+        <section id="command-frontman" class="help-section">
+          <h2>دستورات رئیس</h2>
+
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>دستور</th>
+                  <th>توضیح</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>#لیست بازیکنان</code></td>
+                  <td>نمایش لیست تمامی بازیکنان موجود در بازی</td>
+                </tr>
+                <tr>
+                  <td><code>#لیست بازیکنان زنده</code></td>
+                  <td>نمایش لیست بازیکنان زنده در بازی</td>
+                </tr>
+                <tr>
+                  <td><code>افزودن مهمان + (ریپلی)</code></td>
+                  <td>اضافه شدن آن بازیکن به لیست مهمانان VIP</td>
+                </tr>
+                <tr>
+                  <td><code>حذف مهمان + (ریپلی)</code></td>
+                  <td>حذف آن مهمان از لیست مهمانان VIP</td>
+                </tr>
+                <tr>
+                  <td><code>انتقال رئیس / انتقال ریاست / انتقال رییس + (ریپلی)</code></td>
+                  <td>منتقل کردن کامل ریاست بازی به شخص ریپلی‌شده</td>
+                </tr>
+                <tr>
+                  <td><code>محروم از شرکت + (ریپلی)</code></td>
+                  <td>عدم امکان شرکت کردن این بازیکن در بازی هنگام ثبت‌نام</td>
+                </tr>
+                <tr>
+                  <td><code>مجاز به شرکت + (ریپلی)</code></td>
+                  <td>برداشتن محدودیت شرکت این بازیکن</td>
+                </tr>
+                <tr>
+                  <td><code>کشتن + (ریپلی)</code></td>
+                  <td>حذف شخصی این بازیکن در بازی</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- قفل ها و شخصی سازی ها -->
+        <section id="command-costiming" class="help-section">
+          <h2>قفل‌ها و شخصی‌سازی</h2>
+          <p>
+            سرباز مجهز به قفل‌ها و قابلیت‌های شخصی‌سازی بازی‌ها و موارد لازم
+            برای داشتن یک بازی مرکب واقعی در اختیار گروه‌ها می‌گذارد.
+          </p>
+
+          <h3>قفل‌ها:</h3>
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>دستور</th>
+                  <th>توضیح</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>ضد درگیری فعال</code></td>
+                  <td>شناسایی پیام‌های حاوی توهین و حذف آن‌ها</td>
+                </tr>
+                <tr>
+                  <td><code>ضد درگیری غیرفعال</code></td>
+                  <td>غیرفعال کردن سیستم شناسایی پیام‌های حاوی توهین و حذف آن‌ها</td>
+                </tr>
+                <tr>
+                  <td><code>واکنش با گیف فعال</code></td>
+                  <td>روشن کردن واکنش با گیف در گروه توسط سرباز</td>
+                </tr>
+                <tr>
+                  <td><code>واکنش با گیف غیرفعال</code></td>
+                  <td>خاموش کردن واکنش با گیف در گروه توسط سرباز</td>
+                </tr>
+                <tr>
+                  <td><code>نظرسنجی فعال</code></td>
+                  <td>فعال کردن نظرسنجی بین بازی‌ها</td>
+                </tr>
+                <tr>
+                  <td><code>نظرسنجی غیرفعال</code></td>
+                  <td>غیرفعال کردن نظرسنجی بین بازی‌ها</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>شخصی‌سازی‌ها:</h3>
+          <div class="command-table-wrapper">
+            <table class="command-table">
+              <thead>
+                <tr>
+                  <th>دستور</th>
+                  <th>توضیح</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>تنظیم پیام شرکت کردن + (متن پیام موردنظر)</code></td>
+                  <td>
+                    هنگام شرکت بازیکن در بازی می‌توانید پیام ورود خودتان را تنظیم
+                    کنید. مقادیر قابل تنظیم: (شماره) (نام). برای مثال: بازیکن
+                    شماره (شماره) با نام (نام) به بازی پیوست
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>حذف شرکت کردن</code></td>
+                  <td>حذف پیام شخصی‌سازی‌شده شرکت کردن و بازگشت به پیام پیش‌فرض</td>
+                </tr>
+                <tr>
+                  <td><code>تنظیم پیام کشته شدن + (متن پیام موردنظر)</code></td>
+                  <td><!-- TODO: متن توضیح این دستور را کامل کن --> شخصی‌سازی پیامی که هنگام حذف شدن بازیکن نمایش داده می‌شود</td>
+                </tr>
+                <tr>
+                  <td><code>حذف پیام کشته شدن</code></td>
+                  <td>حذف پیام شخصی‌سازی‌شده کشته شدن و بازگشت به پیام پیش‌فرض</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- استفاده از چت بات -->
+        <section id="command-chatbot" class="help-section">
+          <h2>استفاده از چت‌بات</h2>
+          <p>سرباز مجهز به چت‌بات اختصاصی است که می‌توانید با آن صحبت کنید.</p>
+          <p>
+            برای صحبت کافی‌ست ابتدای پیام خود کلمه <code>سرباز</code> را بنویسید و
+            در ادامه پیام خود را بنویسید.
+          </p>
+          <p>برای مثال: <code>سرباز سلام خوبی؟؟</code></p>
+          <p>
+            توجه: در صورت نداشتن اشتراک هر کاربر قادر به ارسال یک پیام می‌باشد و
+            با داشتن اشتراک می‌توانید ۵ پیام به سرباز ارسال کنید.
+          </p>
+        </section>
+
+        <!-- نکات مهم -->
+        <section id="game-rules" class="help-section">
+          <h2>نکات مهم</h2>
+          <p>سرباز به‌صورت خودکار در بازی این واکنش‌ها را از خود نشان می‌دهد:</p>
+          <ul class="help-list">
+            <li>
+              اگر دسترسی ربات به تنظیم مجوز اعضا در گروه باز باشد، بازیکنان حذف‌شده را سکوت می‌کند.
+            </li>
+            <li>
+              هر بازیکن حین ثبت‌نام یک شماره اختصاصی دارد که با ثبت‌نام این
+              شماره اشغال می‌شود و بازیکن دیگر نمی‌تواند آن شماره را داشته باشد.
+            </li>
+            <li>
+              بازیکنان حذف‌شده بعد از پایان بازی از حالت سکوت خارج خواهند شد.
+            </li>
+          </ul>
+        </section>
+
+        <!-- تفاوت نسخه بله و تلگرام -->
+        <section id="platforms" class="help-section">
+          <h2>تفاوت نسخه بله و تلگرام</h2>
+          <p>
+            سرباز بازی مرکب به‌صورت رسمی در دو پلتفرم تلگرام و بله در دسترس قرار
+            دارد و از نظر راهنما و دستورات کاملاً یکسان است؛ تفاوت آن‌ها در
+            شکل ایموجی‌ها، سرعت و ظاهر است.
+          </p>
+        </section>
+
+        <!-- اشتراک و امکانات ویژه -->
+        <section id="subscription" class="help-section">
+          <h2>اشتراک و امکانات ویژه</h2>
+          <p>
+            با یک اشتراک می‌توانید تمامی محدودیت‌های سرباز را از میان بردارید و به
+            امکانات اصلی دسترسی پیدا کنید. شما می‌توانید با مراجعه به صفحه
+            <a href="pricing.html">تعرفه اشتراک</a> نسبت به تهیه اشتراک اقدام
+            کنید.
+          </p>
+        </section>
+
+        <!-- سوالات متداول -->
+        <section id="faq" class="help-section">
+          <h2>سوالات متداول</h2>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>چگونه ربات را به گروه اضافه کنم؟</summary>
+              <p>
+                در بخش تنظیمات گروه، قسمت افزودن عضو، نام کاربری soldiersquidgame_bot را
+                عضو و ادمین کنید.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>آیا استفاده از سرباز رایگان است؟</summary>
+              <p>
+                سرباز برای گروه‌های جدید اشتراک هدیه می‌دهد و بعد از پایان
+                اشتراک می‌توانید با خرید اشتراک، روزهای بیشتری از سرباز استفاده
+                کنید.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>در صورت بروز مشکل باید چه کار کنم؟</summary>
+              <p>
+                در صورت بروز مشکل می‌توانید مشکل خود را در گروه پشتیبانی بیان کنید.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section id="support" class="help-section">
+          <h2>پشتیبانی</h2>
+          <p>
+            در صورت بروز مشکل یا پرسیدن سوالات خود درباره سرباز بازی مرکب
+            می‌توانید وارد گروه پشتیبانی همان نسخه شوید و سوال خود را مطرح کنید.
+          </p>
+
+          <div class="support-links">
+            <!-- TODO: لینک واقعی گروه پشتیبانی تلگرام را جایگزین کن -->
+            <a href="#" class="support-btn telegram">پشتیبانی نسخه تلگرام</a>
+            <a href="https://ble.ir/join/GhjcQuBX44" class="support-btn bale">پشتیبانی نسخه بله</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- =========================
+         Footer
+    ========================== -->
+    <footer id="copyright">
+      <nav>کلیه داده‌ها متعلق پروژه سرباز بازی مرکب است. 1405 &copy;</nav>
+      <nav>طراحی کل پروژه سرباز بازی مرکب، آقای Erf.</nav>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/help.js"></script>
+  </body>
+</html>

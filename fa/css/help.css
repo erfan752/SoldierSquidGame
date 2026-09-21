@@ -1,0 +1,531 @@
+@font-face {
+  font-family: "samimFont";
+  src: url("../../shared/font/Samim.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #535353;
+  font-family: "samimFont", sans-serif;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --soldier-pink: #ec4899;
+  --soldier-btn-pink: #e63d7e;
+  --soldier-btn-pink-hover: #cc2f6b;
+  --soldier-white: #f0f0f0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   Header (shared pattern)
+========================= */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: 70px;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.94);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.header-logo img {
+  display: block;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+.menu-button {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon-close {
+  display: none;
+}
+
+.menu-button.is-active .icon-menu {
+  display: none;
+}
+
+.menu-button.is-active .icon-close {
+  display: block;
+}
+
+/* =========================
+   Nav Overlay & Drawer (shared pattern)
+========================= */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1090;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.is-visible {
+  opacity: 1;
+}
+
+.nav-overlay[hidden] {
+  display: none;
+}
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(300px, 80vw);
+  background-color: #000;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 20px 0;
+}
+
+.nav-drawer.is-open {
+  transform: translateX(0);
+}
+
+.nav-drawer-header {
+  padding: 10px 24px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+}
+
+.nav-drawer-logo {
+  width: 100%;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  flex: 1;
+  padding: 10px 12px;
+}
+
+.nav-links li {
+  margin-bottom: 4px;
+}
+
+.nav-links a {
+  display: block;
+  padding: 13px 16px;
+  border-radius: 10px;
+  color: var(--soldier-white);
+  font-size: 0.95rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(236, 72, 153, 0.12);
+  color: var(--soldier-pink);
+}
+
+.nav-drawer-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-signin-btn {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--soldier-btn-pink);
+  color: var(--soldier-white);
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-signin-btn:hover {
+  background-color: var(--soldier-btn-pink-hover);
+}
+
+@media (max-width: 400px) {
+  .nav-drawer {
+    width: 85vw;
+  }
+}
+
+/* =========================
+   Hero
+========================= */
+
+.help-hero {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 110px 24px 20px;
+  text-align: center;
+  color: var(--soldier-white);
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 4px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--soldier-pink);
+  color: var(--soldier-pink);
+  font-size: 0.85rem;
+}
+
+.help-hero h1 {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.help-hero p {
+  font-size: 0.95rem;
+  color: #d8d8d8;
+}
+
+/* =========================
+   Layout: TOC + Content
+========================= */
+
+.help-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* --- Table of Contents (desktop: sticky sidebar) --- */
+
+.help-toc {
+  position: sticky;
+  top: 90px;
+}
+
+.help-toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #000;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.toc-link {
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #aaa;
+  font-size: 0.88rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.toc-link:hover {
+  background-color: rgba(236, 72, 153, 0.08);
+  color: #ddd;
+}
+
+.toc-link.is-active {
+  background-color: var(--soldier-btn-pink);
+  color: #fff;
+}
+
+/* --- Content --- */
+
+.help-content {
+  background-color: #000;
+  border-radius: 14px;
+  padding: 30px;
+  color: var(--soldier-white);
+}
+
+.help-section {
+  scroll-margin-top: 90px;
+  padding-bottom: 34px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.help-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.help-section h2 {
+  font-size: 1.25rem;
+  color: var(--soldier-pink);
+  margin-bottom: 14px;
+}
+
+.help-section p {
+  font-size: 0.92rem;
+  line-height: 2;
+  color: #cccccca6;
+  margin-bottom: 12px;
+}
+
+.help-section a {
+  color: black;
+}
+
+.help-section code {
+  background-color: #1c1c1c;
+  color: var(--soldier-pink);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.help-list {
+  padding-right: 20px;
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.help-list li::marker {
+  color: var(--soldier-pink);
+}
+
+/* --- Commands Table --- */
+
+.command-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.command-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+}
+
+.command-table th,
+.command-table td {
+  padding: 12px 14px;
+  text-align: right;
+  font-size: 0.88rem;
+}
+
+.command-table thead th {
+  background-color: #181818;
+  color: var(--soldier-pink);
+}
+
+.command-table tbody tr {
+  border-bottom: 1px solid #1c1c1c;
+  color: #ddd;
+}
+
+.command-table code {
+  background-color: #1c1c1c;
+  color: var(--soldier-pink);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* --- FAQ --- */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background-color: #111;
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #fff;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "+";
+  display: inline-block;
+  margin-left: 10px;
+  color: var(--soldier-pink);
+  font-weight: 700;
+}
+
+.faq-item[open] summary::before {
+  content: "−";
+}
+
+.faq-item p {
+  margin: 10px 0 0;
+  color: #bbb;
+}
+
+/* =========================
+   Subsection Headers (h3)
+========================= */
+
+.help-section h3 {
+  color: var(--soldier-white);
+  font-size: 1.02rem;
+  margin: 22px 0 12px;
+}
+
+/* =========================
+   Support Buttons
+========================= */
+
+.support-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: space-around;
+}
+
+.support-btn {
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.support-btn:hover {
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+}
+
+.support-btn.telegram {
+  background-color: #0088cc;
+}
+
+.support-btn.bale {
+  background-color: #00bf8b;
+}
+
+/* =========================
+   Long code text wraps instead of overflowing
+========================= */
+
+.command-table code {
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* =========================
+   Footer
+========================= */
+
+#copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  padding: 25px 20px;
+  background-color: black;
+  color: var(--soldier-pink);
+  line-height: 1.8;
+}
+
+/* =========================
+   Responsive: TOC becomes sticky horizontal bar
+========================= */
+
+@media (max-width: 850px) {
+  .help-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .help-toc {
+    position: sticky;
+    top: 70px;
+    z-index: 500;
+    margin: 0 -20px;
+    padding: 0 20px;
+    background-color: #535353;
+  }
+
+  .help-toc-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    border-radius: 0;
+    padding: 10px 4px;
+    gap: 8px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .help-toc-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .toc-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
