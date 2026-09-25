@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000" />
-    <meta
-      name="description"
-      content="List of Soldier Squid Game events and tournaments; schedules, prizes, and entry requirements."
-    />
     <link rel="icon" href="../../favicon.ico" type="icon" />
-    <link rel="stylesheet" href="../css/events.css" />
-    <title>Events - Soldier Squid Game</title>
+    <link rel="stylesheet" href="../../shared/css/loading.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <title id="page-title">Article - Soldier Squid Game</title>
   </head>
   <body>
     <!-- =========================
@@ -38,8 +35,8 @@
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          width="32"
-          height="32"
+          width="35"
+          height="35"
           stroke-width="1.5"
           stroke="currentColor"
           aria-hidden="true"
@@ -50,13 +47,14 @@
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
+
         <svg
           class="icon-close"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          width="28"
-          height="28"
+          width="30"
+          height="30"
           stroke-width="1.5"
           stroke="currentColor"
           aria-hidden="true"
@@ -69,6 +67,10 @@
         </svg>
       </button>
     </header>
+
+    <!-- =========================
+         Nav Menu
+    ========================== -->
     <div class="nav-overlay" id="nav-overlay" hidden></div>
 
     <nav class="nav-drawer" id="nav-drawer" aria-label="Main menu">
@@ -92,46 +94,42 @@
         <a href="signin" class="nav-signin-btn">Sign In / Sign Up</a>
       </div>
     </nav>
+
     <main>
-      <!-- =========================
-           Intro
-      ========================== -->
-      <section class="events-hero reveal">
-        <span class="hero-eyebrow">Tournaments</span>
-        <h1>Soldier Events</h1>
-        <p>
-          Any player who shines in the groups has a chance to be invited to
-          these tournaments and compete for Soldier's biggest prizes.
-        </p>
-      </section>
 
       <!-- =========================
-           Filter Tabs
+           Article Content
       ========================== -->
-      <section class="filter-bar reveal">
-        <button class="filter-btn is-active" type="button" data-filter="all">
-          All
-        </button>
-        <button class="filter-btn" type="button" data-filter="upcoming">
-          Upcoming
-        </button>
-        <button class="filter-btn" type="button" data-filter="ongoing">
-          Ongoing
-        </button>
-        <button class="filter-btn" type="button" data-filter="ended">
-          Ended
-        </button>
-      </section>
-
-      <!-- =========================
-           Events (same structure as index)
-      ========================== -->
-      <section id="events" class="reveal">
-        <h2>Events:</h2>
-
-        <div id="events-list">
-          <!-- Cards are built via JS from events.json -->
+      <article class="article-view" id="article-view" hidden>
+        <div class="article-cover" id="article-cover">
+          <img id="article-cover-img" src="" alt="" />
         </div>
+
+        <div class="article-container">
+          <a href="articles" class="back-link"> ← Back to Articles </a>
+
+          <span class="article-category" id="article-category"></span>
+
+          <h1 class="article-title" id="article-title"></h1>
+
+          <div class="article-meta">
+            <span id="article-author"></span>
+            <span class="meta-divider">•</span>
+            <time id="article-date"></time>
+          </div>
+
+          <div class="article-body" id="article-body">
+            <!-- Paragraphs are added via JS -->
+          </div>
+        </div>
+      </article>
+
+      <!-- =========================
+           Related Articles
+      ========================== -->
+      <section class="related-section" id="related-section" hidden>
+        <h2>Related Articles</h2>
+        <div class="related-grid" id="related-grid"></div>
       </section>
     </main>
 
@@ -143,7 +141,8 @@
       <nav>Full project design by Mr. Erf.</nav>
     </footer>
 
-    <script src="../js/events.js"></script>
+    <script src="../../shared/js/loading.js"></script>
     <script src="../js/nav.js"></script>
+    <script src="../js/article.js"></script>
   </body>
 </html>

@@ -3,9 +3,9 @@
     "id": "evt-001",
     "title": "September Tournament",
     "platform": "both",
-    "description": "Each month, the best-performing player from every group is invited to the tournament group and competes for a big prize.",
-    "prize": "500,000 IRR",
-    "date": "2026-09-23",
+    "description": "Every month, the player with the best performance from each group is invited to the tournament group and a big prize is awarded to the winner.",
+    "prize": "500,000 Toman",
+    "date": "2026-09-22",
     "status": "upcoming"
   },
   {
@@ -13,8 +13,17 @@
     "title": "Summer Grand Final",
     "platform": "telegram",
     "description": "Every three months, the top 3 players from each group are invited, and the biggest prize is awarded to the three winners.",
-    "prize": "1,500,000 IRR",
-    "date": "2026-09-22",
+    "prize": "1,500,000 Toman",
+    "date": "2026-09-21",
     "status": "ended"
+  },
+  {
+    "id": "evt-003",
+    "title": "Bale Weekly Challenge",
+    "platform": "bale",
+    "description": "A fast and exciting weekly challenge exclusively for Bale users.",
+    "prize": "150,000 Toman",
+    "date": "2026-09-12",
+    "status": "ongoing"
   }
 ]

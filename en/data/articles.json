@@ -2,28 +2,39 @@
   {
     "id": "article-1",
     "title": "Introducing the New Soldier Update",
-    "excerpt": "New features have been added to Soldier, making the game experience more exciting than ever.",
+    "excerpt": "New features have been added to Soldier that make the gameplay experience more exciting.",
     "cover": "cover1.jpg",
     "category": "Update",
-    "date": "2026-09-06",
+    "date": "2026-09-15",
     "author": "Soldier Team",
     "content": [
-      "The first paragraph of the article goes here and can be as long as needed.",
-      "The second paragraph is used to separate different sections of the text.",
-      "The third paragraph and the rest of the article continue here..."
+      "New features have been added to Soldier that make the gameplay experience more exciting.",
+      "This paragraph continues the article and separates different sections of the text."
     ]
   },
   {
     "id": "article-2",
     "title": "How to Win in Tournaments",
-    "excerpt": "A few practical tips to increase your chances of winning Soldier tournaments.",
+    "excerpt": "A few practical tips to increase your chances of winning in Soldier tournaments.",
     "cover": "cover2.jpg",
     "category": "Guide",
+    "date": "2026-09-10",
+    "author": "Soldier Team",
+    "content": [
+      "A few practical tips to increase your chances of winning in Soldier tournaments.",
+      "Consistency and reading the game rules carefully make the biggest difference."
+    ]
+  },
+  {
+    "id": "article-3",
+    "title": "The Story Behind Squid Game",
+    "excerpt": "A look at how Soldier draws inspiration from the famous Squid Game series.",
+    "cover": "cover3.jpg",
+    "category": "News",
     "date": "2026-09-01",
     "author": "Soldier Team",
     "content": [
-      "The first paragraph of the article goes here.",
-      "The second paragraph continues the guide."
+      "A look at how Soldier draws inspiration from the famous Squid Game series."
     ]
   }
 ]
