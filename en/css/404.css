@@ -5,35 +5,71 @@
 
 * {
   margin: 0;
+  box-sizing: border-box;
   font-family: Regular;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   background-color: black;
 }
 
+/* تصویر پس‌زمینه */
 #image-banner {
+  position: fixed;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
+/* محتوای 404 */
 #titles {
   width: 100%;
-  position: absolute;
-  top: 30%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
+/* استایل فقط روی خود 404 */
 #titles h1 {
-  font-size: 9em;
-  border: 5px solid #ffffffba;
-  background-color: #ffffff45;
+  font-size: clamp(5rem, 15vw, 9em);
+  line-height: 1;
+  color: #ffffff45;
+  -webkit-text-stroke: 1px #ffffffba;
+  text-align: center;
 }
 
+/* متن Page Not Found */
 #titles p {
-  font-size: 2.5em;
+  margin-top: 15px;
+  font-size: clamp(1.5rem, 4vw, 2.5em);
   color: #ffffffba;
+  text-align: center;
+}
+
+/* ریسپانسیو موبایل */
+@media (max-width: 600px) {
+  #titles h1 {
+    padding: 8px 18px;
+    border-width: 3px;
+  }
+
+  #titles p {
+    margin-top: 10px;
+  }
 }

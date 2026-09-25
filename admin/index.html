@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
@@ -22,9 +22,27 @@
         <span class="admin-tag">پنل مدیریت</span>
       </div>
 
-      <button class="menu-button" type="button" aria-label="باز کردن منو" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="32" height="32" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          width="32"
+          height="32"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
         </svg>
       </button>
     </header>
@@ -50,24 +68,32 @@
           <div class="info-row">
             <span class="info-label">شناسه:</span>
             <span class="info-value" id="admin-id">SDL-000001</span>
-            <button class="btn-small" type="button" id="copy-id-btn">کپی</button>
+            <button class="btn-small" type="button" id="copy-id-btn">
+              کپی
+            </button>
           </div>
 
           <div class="info-row">
             <span class="info-label">ایمیل:</span>
             <span class="info-value" id="admin-email">admin@soldier.game</span>
-            <button class="btn-small" type="button" id="email-btn">تغییر ایمیل</button>
+            <button class="btn-small" type="button" id="email-btn">
+              تغییر ایمیل
+            </button>
           </div>
 
           <div class="info-row">
             <span class="info-label">رمز:</span>
             <span class="info-value">••••••</span>
-            <button class="btn-small" type="button" id="password-btn">تغییر رمز</button>
+            <button class="btn-small" type="button" id="password-btn">
+              تغییر رمز
+            </button>
           </div>
 
           <div class="info-row">
             <span class="info-label">آواتار:</span>
-            <button class="btn-small" type="button" id="avatar-btn">تغییر آواتار</button>
+            <button class="btn-small" type="button" id="avatar-btn">
+              تغییر آواتار
+            </button>
           </div>
         </div>
 
@@ -88,7 +114,12 @@
         <form class="admin-form" id="grant-sub-form">
           <div class="form-row">
             <label for="grant-user-id">شناسه کاربر</label>
-            <input type="text" id="grant-user-id" placeholder="SDL-123456" required />
+            <input
+              type="text"
+              id="grant-user-id"
+              placeholder="SDL-123456"
+              required
+            />
           </div>
 
           <div class="form-row">
@@ -111,10 +142,17 @@
 
           <div class="form-row" id="custom-days-row" hidden>
             <label for="grant-custom-days">تعداد روز</label>
-            <input type="number" id="grant-custom-days" min="1" placeholder="مثلاً 10" />
+            <input
+              type="number"
+              id="grant-custom-days"
+              min="1"
+              placeholder="مثلاً 10"
+            />
           </div>
 
-          <button class="btn-primary form-submit" type="submit">اهدای اشتراک</button>
+          <button class="btn-primary form-submit" type="submit">
+            اهدای اشتراک
+          </button>
         </form>
 
         <div class="table-wrapper">
@@ -130,7 +168,100 @@
             </thead>
             <tbody id="grants-body">
               <tr>
-                <td colspan="5" class="empty-row">هنوز اشتراکی اهدا نشده است.</td>
+                <td colspan="5" class="empty-row">
+                  هنوز اشتراکی اهدا نشده است.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =========================
+     Gift Codes
+========================== -->
+      <section class="table-section">
+        <div class="table-header">
+          <h2>افزودن کد هدیه:</h2>
+        </div>
+
+        <form class="admin-form" id="gift-code-form">
+          <div class="form-row">
+            <label for="gift-code">کد هدیه</label>
+            <input
+              type="text"
+              id="gift-code"
+              placeholder="مثلاً SOLDIER20"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="gift-discount-type">نوع تخفیف</label>
+            <select id="gift-discount-type" required>
+              <option value="percent">درصدی</option>
+              <option value="fixed">مبلغ ثابت</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="gift-discount-value">مقدار تخفیف</label>
+            <input
+              type="number"
+              id="gift-discount-value"
+              min="1"
+              placeholder="مثلاً 20"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="gift-expires-at">تاریخ انقضا</label>
+            <input type="date" id="gift-expires-at" />
+          </div>
+
+          <div class="form-row">
+            <label for="gift-max-uses">حداکثر تعداد استفاده</label>
+            <input
+              type="number"
+              id="gift-max-uses"
+              min="1"
+              placeholder="مثلاً 100"
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="gift-status">وضعیت</label>
+            <select id="gift-status" required>
+              <option value="active">فعال</option>
+              <option value="inactive">غیرفعال</option>
+            </select>
+          </div>
+
+          <button class="btn-primary form-submit" type="submit">
+            افزودن کد هدیه
+          </button>
+        </form>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>کد</th>
+                <th>نوع تخفیف</th>
+                <th>مقدار</th>
+                <th>تاریخ انقضا</th>
+                <th>تعداد استفاده</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+
+            <tbody id="gift-codes-body">
+              <tr>
+                <td colspan="7" class="empty-row">
+                  هنوز کد هدیه‌ای ایجاد نشده است.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -148,7 +279,12 @@
         <form class="admin-form" id="article-form">
           <div class="form-row">
             <label for="article-title">عنوان مقاله</label>
-            <input type="text" id="article-title" placeholder="عنوان را وارد کنید" required />
+            <input
+              type="text"
+              id="article-title"
+              placeholder="عنوان را وارد کنید"
+              required
+            />
           </div>
 
           <div class="form-row">
@@ -167,10 +303,17 @@
 
           <div class="form-row form-row-full">
             <label for="article-body">متن مقاله</label>
-            <textarea id="article-body" rows="6" placeholder="متن مقاله را بنویسید..." required></textarea>
+            <textarea
+              id="article-body"
+              rows="6"
+              placeholder="متن مقاله را بنویسید..."
+              required
+            ></textarea>
           </div>
 
-          <button class="btn-primary form-submit" type="submit">انتشار مقاله</button>
+          <button class="btn-primary form-submit" type="submit">
+            انتشار مقاله
+          </button>
         </form>
 
         <div class="table-wrapper">
@@ -186,7 +329,9 @@
             </thead>
             <tbody id="articles-body">
               <tr>
-                <td colspan="5" class="empty-row">هنوز مقاله‌ای منتشر نشده است.</td>
+                <td colspan="5" class="empty-row">
+                  هنوز مقاله‌ای منتشر نشده است.
+                </td>
               </tr>
             </tbody>
           </table>
@@ -204,7 +349,12 @@
         <form class="admin-form" id="tournament-form">
           <div class="form-row">
             <label for="tournament-name">نام تورنومنت</label>
-            <input type="text" id="tournament-name" placeholder="مثلاً تورنومنت شهریور ماه" required />
+            <input
+              type="text"
+              id="tournament-name"
+              placeholder="مثلاً تورنومنت شهریور ماه"
+              required
+            />
           </div>
 
           <div class="form-row">
@@ -223,15 +373,26 @@
 
           <div class="form-row">
             <label for="tournament-prize">جایزه</label>
-            <input type="text" id="tournament-prize" placeholder="مثلاً 500,000 تومان" required />
+            <input
+              type="text"
+              id="tournament-prize"
+              placeholder="مثلاً 500,000 تومان"
+              required
+            />
           </div>
 
           <div class="form-row form-row-full">
             <label for="tournament-desc">توضیحات</label>
-            <textarea id="tournament-desc" rows="4" placeholder="شرح تورنومنت..."></textarea>
+            <textarea
+              id="tournament-desc"
+              rows="4"
+              placeholder="شرح تورنومنت..."
+            ></textarea>
           </div>
 
-          <button class="btn-primary form-submit" type="submit">افزودن تورنومنت</button>
+          <button class="btn-primary form-submit" type="submit">
+            افزودن تورنومنت
+          </button>
         </form>
 
         <div class="table-wrapper">
@@ -248,7 +409,9 @@
             </thead>
             <tbody id="tournaments-body">
               <tr>
-                <td colspan="6" class="empty-row">هنوز تورنومنتی ثبت نشده است.</td>
+                <td colspan="6" class="empty-row">
+                  هنوز تورنومنتی ثبت نشده است.
+                </td>
               </tr>
             </tbody>
           </table>

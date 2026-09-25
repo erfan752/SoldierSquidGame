@@ -47,9 +47,15 @@ if (grantForm && grantsBody) {
     const platform = document.getElementById("grant-platform").value;
     const plan = document.getElementById("grant-plan").value;
 
-    const platformLabel = { bale: "بله", telegram: "تلگرام" }[platform] || platform;
+    const platformLabel =
+      {bale: "بله", telegram: "تلگرام"}[platform] || platform;
     const planLabel =
-      { weekly: "هفتگی", biweekly: "۱۵ روزه", monthly: "ماهانه", custom: "دلخواه" }[plan] || plan;
+      {
+        weekly: "هفتگی",
+        biweekly: "۱۵ روزه",
+        monthly: "ماهانه",
+        custom: "دلخواه",
+      }[plan] || plan;
 
     // TODO: اتصال به Cloudflare Worker برای ثبت واقعی اهدای اشتراک
     const emptyRow = grantsBody.querySelector(".empty-row");
@@ -81,7 +87,8 @@ if (articleForm && articlesBody) {
     const title = document.getElementById("article-title").value.trim();
     const category = document.getElementById("article-category").value;
     const categoryLabel =
-      { news: "اخبار", guide: "راهنما", update: "به‌روزرسانی" }[category] || category;
+      {news: "اخبار", guide: "راهنما", update: "به‌روزرسانی"}[category] ||
+      category;
 
     // TODO: اتصال به Cloudflare Worker برای ذخیره واقعی مقاله
     const emptyRow = articlesBody.querySelector(".empty-row");
@@ -118,7 +125,7 @@ if (tournamentForm && tournamentsBody) {
     const prize = document.getElementById("tournament-prize").value.trim();
 
     const platformLabel =
-      { bale: "بله", telegram: "تلگرام", both: "هر دو" }[platform] || platform;
+      {bale: "بله", telegram: "تلگرام", both: "هر دو"}[platform] || platform;
 
     // TODO: اتصال به Cloudflare Worker برای ثبت واقعی تورنومنت
     const emptyRow = tournamentsBody.querySelector(".empty-row");
@@ -139,5 +146,64 @@ if (tournamentForm && tournamentsBody) {
     tournamentsBody.prepend(row);
 
     tournamentForm.reset();
+  });
+}
+
+// --- فرم کدهای هدیه ---
+const giftCodeForm = document.getElementById("gift-code-form");
+const giftCodesBody = document.getElementById("gift-codes-body");
+
+if (giftCodeForm && giftCodesBody) {
+  giftCodeForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const code = document
+      .getElementById("gift-code")
+      .value.trim()
+      .toUpperCase();
+    const discountType = document.getElementById("gift-discount-type").value;
+    const discountValue = document.getElementById("gift-discount-value").value;
+    const expiresAt = document.getElementById("gift-expires-at").value;
+    const maxUses = document.getElementById("gift-max-uses").value;
+    const status = document.getElementById("gift-status").value;
+
+    const discountTypeLabel =
+      {
+        percent: "درصدی",
+        fixed: "مبلغ ثابت",
+      }[discountType] || discountType;
+
+    const discountLabel =
+      discountType === "percent"
+        ? `${discountValue}%`
+        : `${Number(discountValue).toLocaleString("fa-IR")} تومان`;
+
+    const statusLabel =
+      {
+        active: "فعال",
+        inactive: "غیرفعال",
+      }[status] || status;
+
+    const emptyRow = giftCodesBody.querySelector(".empty-row");
+    if (emptyRow) emptyRow.closest("tr").remove();
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${code}</td>
+      <td>${discountTypeLabel}</td>
+      <td>${discountLabel}</td>
+      <td>${expiresAt || "بدون انقضا"}</td>
+      <td>0${maxUses ? ` / ${maxUses}` : ""}</td>
+      <td>${statusLabel}</td>
+      <td>
+        <button class="row-action edit" type="button">ویرایش</button>
+        <button class="row-action delete" type="button">حذف</button>
+      </td>
+    `;
+
+    giftCodesBody.prepend(row);
+
+    giftCodeForm.reset();
   });
 }
