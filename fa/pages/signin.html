@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
@@ -55,7 +55,11 @@
                 placeholder="رمز حساب را وارد کنید"
               />
 
-              <button type="button" id="togglePassword-btn" aria-label="نمایش رمز">
+              <button
+                type="button"
+                id="togglePassword-btn"
+                aria-label="نمایش رمز"
+              >
                 <img
                   src="../../shared/images/icons/soldier-cloase.png"
                   alt=""
@@ -69,8 +73,7 @@
 
           <p class="agreement">
             با ساخت حساب درواقع با
-            <a href="#">شرایط استفاده و سیاست حفظ حریم خصوصی</a> موافقت می
-            کنید.
+            <a href="#">شرایط استفاده و سیاست حفظ حریم خصوصی</a> موافقت می کنید.
           </p>
 
           <div id="login-options">
@@ -84,6 +87,52 @@
         </form>
       </section>
     </main>
+    <div id="register-modal" class="register-modal">
+      <div class="register-modal-content">
+        <button
+          type="button"
+          id="close-register-modal"
+          class="register-modal-close"
+        >
+          ×
+        </button>
+
+        <h2>ادامه ثبت نام</h2>
+
+        <p>برای ساخت حساب سرباز، اطلاعات زیر را وارد کنید.</p>
+
+        <div class="register-avatar">
+          <img
+            src="../../shared/images/avatars/456-profile-icon.jpg"
+            alt="آواتار 456"
+          />
+        </div>
+
+        <label for="register-name">
+          نام سرباز
+
+          <input
+            type="text"
+            id="register-name"
+            placeholder="نام خود را وارد کنید"
+            autocomplete="name"
+          />
+        </label>
+
+        <label for="register-email">
+          ایمیل بازیابی
+
+          <input
+            type="email"
+            id="register-email"
+            placeholder="ایمیل بازیابی را وارد کنید"
+            autocomplete="email"
+          />
+        </label>
+
+        <button type="button" id="register-submit">ساخت حساب</button>
+      </div>
+    </div>
 
     <script src="../js/signin.js"></script>
   </body>

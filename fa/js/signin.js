@@ -36,6 +36,68 @@ togglePasswordBtn.addEventListener("click", () => {
 });
 
 const form = document.querySelector("#form-elements");
+const registerModal = document.querySelector("#register-modal");
+const registerNameInput = document.querySelector("#register-name");
+const registerEmailInput = document.querySelector("#register-email");
+const registerSubmitBtn = document.querySelector("#register-submit");
+const closeRegisterModalBtn = document.querySelector("#close-register-modal");
+
+closeRegisterModalBtn.addEventListener("click", () => {
+  registerModal.classList.remove("active");
+});
+
+registerSubmitBtn.addEventListener("click", async () => {
+  const number = numberIDinput.value.trim();
+  const password = passwordInput.value;
+  const name = registerNameInput.value.trim();
+  const email = registerEmailInput.value.trim();
+
+  if (!name) {
+    alert("نام سرباز را وارد کنید.");
+    return;
+  }
+
+  if (!/^[A-Za-z]+$/.test(name)) {
+    alert("نام سرباز باید فقط شامل حروف انگلیسی باشد.");
+    return;
+  }
+
+  registerSubmitBtn.disabled = true;
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        soldier_id: `SDL-${number}`,
+        name,
+        email: email || null,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      alert(data.error || "ساخت حساب انجام نشد.");
+      return;
+    }
+
+    localStorage.setItem("soldier_token", data.token);
+
+    registerModal.classList.remove("active");
+
+    window.location.href = "../index";
+  } catch (error) {
+    console.error("Register error:", error);
+
+    alert("ارتباط با سرور برقرار نشد. لطفاً اتصال اینترنت خود را بررسی کنید.");
+  } finally {
+    registerSubmitBtn.disabled = false;
+  }
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -51,23 +113,25 @@ form.addEventListener("submit", async (event) => {
   const soldierId = `SDL-${number}`;
 
   try {
-    const response = await fetch(
-      `${API_BASE_URL}/api/auth/login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          soldier_id: soldierId,
-          password,
-        }),
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        soldier_id: soldierId,
+        password,
+      }),
+    });
 
     const data = await response.json();
 
     if (!response.ok || !data.success) {
+      if (response.status === 404 && data.code === "USER_NOT_FOUND") {
+        document.querySelector("#register-modal").classList.add("active");
+        return;
+      }
+
       alert(data.error || "ورود به حساب انجام نشد.");
       return;
     }
@@ -78,8 +142,6 @@ form.addEventListener("submit", async (event) => {
   } catch (error) {
     console.error("Login error:", error);
 
-    alert(
-      "ارتباط با سرور برقرار نشد. لطفاً اتصال اینترنت خود را بررسی کنید.",
-    );
+    alert("ارتباط با سرور برقرار نشد. لطفاً اتصال اینترنت خود را بررسی کنید.");
   }
 });
