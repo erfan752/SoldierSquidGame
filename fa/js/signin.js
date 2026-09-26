@@ -101,13 +101,13 @@ registerSubmitBtn.addEventListener("click", async () => {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+
   const submitButton = form.querySelector('button[type="submit"]');
 
   if (submitButton.disabled) {
     return;
   }
 
-  submitButton.disabled = true;
   const number = numberIDinput.value.trim();
   const password = passwordInput.value;
 
@@ -115,6 +115,8 @@ form.addEventListener("submit", async (event) => {
     alert("شناسه سرباز و رمز عبور را وارد کنید.");
     return;
   }
+
+  submitButton.disabled = true;
 
   const soldierId = `SDL-${number}`;
 
@@ -149,5 +151,8 @@ form.addEventListener("submit", async (event) => {
     console.error("Login error:", error);
 
     alert(`Login error: ${error.message}`);
+  } finally {
+    submitButton.disabled = false;
   }
 });
+// });
