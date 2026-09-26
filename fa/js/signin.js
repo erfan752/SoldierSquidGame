@@ -127,8 +127,8 @@ form.addEventListener("submit", async (event) => {
     const data = await response.json();
 
     if (!response.ok || !data.success) {
-      if (response.status === 404 && data.code === "USER_NOT_FOUND") {
-        document.querySelector("#register-modal").classList.add("active");
+      if (response.status === 404) {
+        registerModal.classList.add("active");
         return;
       }
 
