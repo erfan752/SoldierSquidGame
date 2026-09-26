@@ -102,7 +102,7 @@ registerSubmitBtn.addEventListener("click", async () => {
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const submitButton = form.querySelector('button[type="submit"]');
+  const submitButton = document.querySelector("#submit-btn");
 
   if (submitButton.disabled) {
     return;
