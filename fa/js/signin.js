@@ -101,7 +101,13 @@ registerSubmitBtn.addEventListener("click", async () => {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const submitButton = form.querySelector('button[type="submit"]');
 
+  if (submitButton.disabled) {
+    return;
+  }
+
+  submitButton.disabled = true;
   const number = numberIDinput.value.trim();
   const password = passwordInput.value;
 
