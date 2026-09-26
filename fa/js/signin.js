@@ -142,6 +142,6 @@ form.addEventListener("submit", async (event) => {
   } catch (error) {
     console.error("Login error:", error);
 
-    alert("ارتباط با سرور برقرار نشد. لطفاً اتصال اینترنت خود را بررسی کنید.");
+    alert(`Login error: ${error.message}`);
   }
 });
